@@ -1,0 +1,120 @@
+@import "variables";
+
+.suggestionsContainer {
+    width: 100%;
+    height: 700px;
+    background-color: #141515;
+    padding: 80px 0 50px;
+    display: flex;
+    justify-content: center;
+
+    .suggestionsContent {
+        width: 1140px;
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+        
+        .col_6 {
+            width: 50%;
+            height: 570px;
+            
+            
+            a {
+                display: inline-block;
+                position: relative;
+                width: 540px;
+                overflow: hidden;           
+                
+                &:hover {
+                    img {
+                        transform: scale(1.1);
+                    }
+                }
+                
+                img {
+                overflow: hidden;           
+
+                    transition: all .3s;
+                    width: 540px;
+                }
+                    
+                .titleSuggestion {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    padding: 40px;
+                    width: 540px;
+                    height: 540px;
+                    z-index: 1;                    
+                    
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0,0,0,.6);
+                        z-index: -1;
+                    }
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 20px;
+                        left: 20px;
+                        border: 2px solid #fff;
+                        width: calc(100% - 40px);
+                        height: calc(100% - 40px);
+                    }
+
+
+                    h5{
+                        margin-bottom: 5px;
+                        font-size: 18px;
+                        color: $whiteColor;
+                    }
+
+                    h4 {
+                        margin-bottom: 5px;
+                        font-size: 26px;
+                        color: $whiteColor;
+                    }
+    
+                }
+
+            }    
+
+            .burgerSuggestion{
+                height: 540px;
+
+                .titleSuggestion {
+                    width: 540px;
+                    height: 540px;
+                }
+
+            }
+            
+            .friesSuggestion, .dessertSuggestion {
+                height: 540px;
+                height: 254px;
+
+                .titleSuggestion {
+                    width: 540px;
+                    height: 254px;
+                }
+            }
+            
+
+
+            .friesSuggestion{
+                display: inline-block;
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+
+}

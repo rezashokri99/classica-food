@@ -1,0 +1,70 @@
+@import "variables";
+
+
+.headerContainer {
+    width: 100%;
+    background-color: #141110;
+    height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+    .navbarContainer {
+        width: 1140px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+
+        img {
+            width: 180px;
+        }
+
+        ul {
+            display: flex;
+            list-style: none;
+        }
+
+
+        .menuContainer li {
+            a {
+                color: $whiteColor;
+                text-decoration: none;
+                font-weight: 600;
+                display: inline-block;
+                padding: 30px 20px;
+                position: relative;
+            }
+            .clicked {
+                &::after{
+                    position: absolute;
+                    bottom: 10px;
+                    left: 10%;
+                    content: "";
+                    width: 0%;
+                    height: 4px;
+                    background-color: $whiteColor;
+                    transition: all 0.3s ease-in-out;
+                    width: 80%;
+                    border-radius: 2px;
+                }
+            }
+        }
+
+
+        .cartANDsearchContainer li {
+            svg {
+                color: #9F9E9E;
+                font-size: 1.7rem;
+            }
+            
+            &:first-child svg{
+                margin-right: 20px;
+            }
+        }
+    }
+}
+
+
+
