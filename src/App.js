@@ -1,8 +1,8 @@
 import './App.css';
+import Footer from './components/Footer';
 import FreeDeliverySection from './components/FreeDeliverySection';
 import Landing from './components/Landing';
 import Navbar from './components/Navbar';
-import OurBackbone from './components/OurBackbone';
 import Suggestions from './components/Suggestions';
 import TopPicks from './components/TopPicks';
 
@@ -14,7 +14,7 @@ function App() {
       <Suggestions />
       <TopPicks />
       <FreeDeliverySection />
-      <OurBackbone />
+      <Footer />
     </div>
   );
 }
