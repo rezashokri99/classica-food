@@ -1,0 +1,194 @@
+@import "../variables";
+
+
+
+.shopContainer {
+    width: 100%;
+    min-height: 2080px;
+    padding: 80px 0;
+    background-color: #141515;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 1140px;
+    height: 100%;
+    
+    .row {
+        display: flex;
+    }
+
+    .col_8 {
+        flex: 0 0 66.666667%;
+        max-width: 66.666667%;
+        width: 100%;
+        // padding-right: 15px;
+        // padding-left: 15px;
+
+        .filterContainer {
+            width: 300px;
+            display: flex;
+            margin-bottom: 30px;
+
+
+            .active {
+                background-color: $orangeColor;
+                color: #fff ;
+            }
+            p {
+                background-color: #1f1f1f;
+                color: #9F9E9E;
+                width: 50px;
+                height: 50px;
+                transition: .3s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                margin-right: 10px;
+            }
+        }
+
+        .productContainer {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .menu_appetizers {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .col_6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+            width: 100%;
+            margin-bottom: 30px;
+
+
+
+            .productImageContainer {
+                height: 350px;
+                width: 350px;
+                background-color: #17191a;
+
+
+                &:hover {
+                    img {
+                        transform: scale(1.1);
+                    }
+                }
+
+                img {
+                    overflow: hidden;
+                    transition: all .3s;
+                }
+            }
+
+            .productInfo {
+                margin-top: 15px;
+
+                h5.productTitle {
+                    margin-bottom: 15px;
+                    font-size: 22px;
+                    
+                    a{
+                        color: #e8e6e3;
+                        text-decoration: none;
+                    }
+                }
+
+                p.productPrice {
+                    color: $orangeColor;
+                    font-weight: 600;
+                    margin-bottom: 15px;
+                }
+
+                p.productText {
+                    color: #aba499;
+                }
+
+
+            }
+
+
+        }
+
+        
+    }
+
+
+    .col_4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+
+
+        .searchContainer {
+
+            h5 {
+                position: relative;
+                font-size: 22px;
+                margin-bottom: 30px;
+                padding-bottom: 10px;
+                font-weight: 700;
+                color: #fff;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    width: 40px;
+                    height: 2px;
+                    background-color: #E1901B;
+                }
+            }
+
+
+            input {
+                height: 50px;
+                padding: 8px 15px;
+                border: 1px solid #4e4e4e;
+                width: 100%;
+                color: #fff;
+                background-color: #1f1f1f;
+                font-size: 15px;
+                transition: .3s;
+                border-radius: 0;
+            }
+
+
+        }
+
+        .filterAndCategoryContainer {
+            margin-top: 50px;
+            
+            h5 {
+                position: relative;
+                font-size: 22px;
+                margin-bottom: 30px;
+                padding-bottom: 10px;
+                font-weight: 700;
+                color: #fff;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    width: 40px;
+                    height: 2px;
+                    background-color: #E1901B;
+                } 
+            }
+
+        }
+
+    }
+
+
+
+}

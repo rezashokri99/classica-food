@@ -50,7 +50,7 @@ const Navbar = () => {
                 <ul className={styles.menuContainer}>
                     <li><Link to={"/"} onClick={() => changeNav("homePages")} className={`${navActive === "homePages" && styles.clicked}`}>Home Pages</Link></li>
                     <li><Link to={"/menu"} onClick={() => changeNav("menu")} className={`${navActive === "menu" && styles.clicked}`}>Menu</Link></li>
-                    <li><a href="#1" onClick={() => changeNav("shop")} className={`${navActive === "shop" && styles.clicked}`}>Shop</a></li>
+                    <li><Link to={"/shop"} onClick={() => changeNav("shop")} className={`${navActive === "shop" && styles.clicked}`}>Shop</Link></li>
                     <li><a href="#1" onClick={() => changeNav("pages")} className={`${navActive === "pages" && styles.clicked}`}>Pages</a></li>
                     <li><a href="#1" onClick={() => changeNav("blog")} className={`${navActive === "blog" && styles.clicked}`}>Blog</a></li>
                     <li><a href="#1" onClick={() => changeNav("contactUs")} className={`${navActive === "contactUs" && styles.clicked}`}>Contact Us</a></li>

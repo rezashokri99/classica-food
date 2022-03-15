@@ -86,6 +86,8 @@
 
         h5 {
             margin-bottom: 20px;
+            color: $whiteColor;
+            font-size: 18px;
         }
 
         ul {
@@ -124,6 +126,8 @@
 
         h5 {
             margin-bottom: 20px;
+            color: $whiteColor;
+            font-size: 18px;
         }
 
         .imagesContainer div {
@@ -135,6 +139,7 @@
             img {
                 width: 96px;
                 margin-right: 30px;
+                cursor: pointer;
             }
 
         }
