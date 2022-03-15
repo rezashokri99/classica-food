@@ -1,16 +1,16 @@
 import React from 'react';
 import styles from "./Footer.module.scss";
-import logo from "../images/logo.png";
+import logo from "../../images/logo.png";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaPinterestP } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
-import insta1 from "../images/insta1.jpg";
-import insta2 from "../images/insta2.jpg";
-import insta3 from "../images/insta3.jpg";
-import insta4 from "../images/insta4.jpg";
-import insta5 from "../images/insta5.jpg";
-import insta6 from "../images/insta6.jpg";
+import insta1 from "../../images/insta1.jpg";
+import insta2 from "../../images/insta2.jpg";
+import insta3 from "../../images/insta3.jpg";
+import insta4 from "../../images/insta4.jpg";
+import insta5 from "../../images/insta5.jpg";
+import insta6 from "../../images/insta6.jpg";
 import { FaAngleRight } from "react-icons/fa";
 import { AiFillHeart } from "react-icons/ai";
 

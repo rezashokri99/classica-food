@@ -1,20 +1,20 @@
 import './App.css';
-import Footer from './components/Footer';
-import FreeDeliverySection from './components/FreeDeliverySection';
-import Landing from './components/Landing';
-import Navbar from './components/Navbar';
-import Suggestions from './components/Suggestions';
-import TopPicks from './components/TopPicks';
+import Layout from "./components/Layout/Layout";
+import HomePage from './components/HomePage/HomePage';
+import Menu from './components/Menu/Menu';
+import { Route, Routes } from 'react-router-dom';
+
+
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Landing />
-      <Suggestions />
-      <TopPicks />
-      <FreeDeliverySection />
-      <Footer />
+      <Layout>
+        <Routes>
+          <Route path='/' exact element={<HomePage />} />
+          <Route path='/menu' element={<Menu />} />
+        </Routes>
+      </Layout>
     </div>
   );
 }

@@ -1,4 +1,5 @@
-@import "variables";
+@import "../variables";
+
 
 
 .topPicksContainer {
@@ -118,7 +119,7 @@
 
         transition: opacity .15s linear;
 
-
+        
         .row {
             display: flex;
             flex-wrap: wrap;

@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from "./Suggestions.module.scss";
-import burgerImage from "../images/1.jpg";
-import friesImage from "../images/2.jpg";
-import dessertImage from "../images/3.jpg";
+import burgerImage from "../../images/1.jpg";
+import friesImage from "../../images/2.jpg";
+import dessertImage from "../../images/3.jpg";
 
 
 const Suggestions = () => {
