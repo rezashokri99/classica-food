@@ -53,7 +53,7 @@ const Menu = () => {
                         {showFood === "all" && <div className={styles.rowAppetizers}>
                             {
                                 products.map((product) => (
-                                <div className={styles.product}>
+                                <div className={styles.product} key={product.id}>
                                     <img src={product.image} alt="image10" />
                                     <div className={styles.productInfo}>
                                         <div className={styles.productHeader}>
@@ -72,7 +72,7 @@ const Menu = () => {
                         {showFood === "appetizers" && <div className={styles.rowAppetizers}>
                             {
                                 appetizers.map((product) => (
-                                <div className={styles.product}>
+                                <div className={styles.product} key={product.id}>
                                     <img src={product.image} alt="image10" />
                                     <div className={styles.productInfo}>
                                         <div className={styles.productHeader}>
@@ -91,7 +91,7 @@ const Menu = () => {
                         {showFood === "burgers" && <div className={styles.rowAppetizers}>
                             {
                                 burgers.map((product) => (
-                                <div className={styles.product}>
+                                <div className={styles.product} key={product.id}>
                                     <img src={product.image} alt="image10" />
                                     <div className={styles.productInfo}>
                                         <div className={styles.productHeader}>
@@ -110,7 +110,7 @@ const Menu = () => {
                         {showFood === "drinks" && <div className={styles.rowAppetizers}>
                             {
                                 drinks.map((product) => (
-                                <div className={styles.product}>
+                                <div className={styles.product} key={product.id}>
                                     <img src={product.image} alt="image10" />
                                     <div className={styles.productInfo}>
                                         <div className={styles.productHeader}>

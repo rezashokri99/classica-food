@@ -59,7 +59,7 @@ const TopPicks = () => {
             <div className={styles.row}>
               {
                 appetizers.map((product) => (
-                  <div className={styles.col_4}>
+                  <div className={styles.col_4} key={product.id}>
                     <div className={styles.productImageContainer}>
                       <a href="#1">
                         <img src={product.image} alt="productImage" className={styles.image} />
@@ -82,7 +82,7 @@ const TopPicks = () => {
 
               {
                 burgers.map((product) => (
-                  <div className={styles.col_4}>
+                  <div className={styles.col_4} key={product.id}>
                     <div className={styles.productImageContainer}>
                       <a href="#1">
                         <img src={product.image} alt="productImage" className={styles.image} />
@@ -105,7 +105,7 @@ const TopPicks = () => {
 
               {
                 drinks.map((product) => (
-                  <div className={styles.col_4}>
+                  <div className={styles.col_4} key={product.id}>
                     <div className={styles.productImageContainer}>
                       <a href="#1">
                         <img src={product.image} alt="productImage" className={styles.image} />

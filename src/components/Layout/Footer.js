@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from "./Footer.module.scss";
 import logo from "../../images/logo.png";
-import { FaFacebookF } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { FaPinterestP } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import insta1 from "../../images/insta1.jpg";
@@ -29,8 +29,8 @@ const Footer = () => {
                     </div>    
                     <p>I provide new recipes with a twist on daily basis. I also post blog posts about fun ideas to do in the kitchen</p>
                     <ul>
-                        <li><a href='#1'><FaFacebookF /></a></li>
-                        <li><a href='#1'><FaTwitter /></a></li>
+                        <li><a href='https://www.instagram.com/reza_shokri99/'><FaInstagram /></a></li>
+                        <li><a href='https://github.com/rezashokri99?tab=repositories'><FaGithub /></a></li>
                         <li><a href='#1'><FaPinterestP /></a></li>
                         <li><a href='#1'><FaLinkedinIn /></a></li>
                     </ul>
@@ -78,7 +78,7 @@ const Footer = () => {
 
 
             <div className={styles.footerBottom}>
-                <p>Made with <AiFillHeart /> by <a href='#1'> AndromedaThemes</a> © 2020</p>
+                <p>Made with <AiFillHeart /> by <a href='https://www.instagram.com/reza_shokri99/'> reza shokri</a> © 2020</p>
                 <ul>
                     <li><a href='#1'>Contact Us</a></li>
                     <li><a href='#1'>About Us</a></li>
