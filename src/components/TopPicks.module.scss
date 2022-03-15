@@ -1,0 +1,195 @@
+@import "variables";
+
+
+.topPicksContainer {
+    width: 100%;
+    height: 967px;
+    padding: 0px 0px 50px;
+    background-color: #141515;  
+    display: flex;
+    justify-content: center;
+}
+
+
+.topPicksContent {
+    width: 1140px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    // text-align: center;
+    
+
+
+    .titleContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 50px;
+
+        h5 {
+            color: $whiteColor;
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            position: relative;
+            width: fit-content;
+
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: 100%;
+                margin-right: 20px;
+                transform: translateY(-50%);
+                width: 90px;
+                height: 2px;
+                background-color: $orangeColor;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 100%;
+                margin-left: 20px;
+                transform: translateY(-50%);
+                width: 90px;
+                height: 2px;
+                background-color: $orangeColor;
+            }
+        }
+        
+        h2 {
+            color: $whiteColor;
+            font-size: 42px;
+            margin-bottom: 20px;
+            line-height: 48px;
+        }
+        
+        p {
+            color: $whiteColor;
+            max-width: 580px;
+            margin: 0 auto 20px;
+            line-height: 28px;
+        }
+
+    }
+
+
+    .productTabsContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+
+
+
+        .active {
+            color: $orangeColor;
+        }
+        a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: $whiteColor;
+            padding: 10px 20px;
+            background-color: transparent;
+            font-weight: 600;
+            margin-right: 10px;
+            text-decoration: none;
+
+
+            &:hover {
+                color: $orangeColor;
+            }
+
+
+            svg {
+                font-size: 40px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+
+    .tabContent {
+
+        transition: opacity .15s linear;
+
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+            margin-top: 50px;
+
+
+
+            .col_4 {
+                position: relative;
+                flex: 0 0 33.333333%;
+                max-width: 33.333333%;
+                width: 100%;
+                min-height: 1px;
+                padding-right: 15px;
+                padding-left: 15px;
+                margin-bottom: 30px;
+                overflow: hidden;        
+
+
+
+                .productImageContainer {
+                    height: 350px;
+                    width: 350px;
+                    background-color: #17191a;
+
+
+                    &:hover {
+                        img {
+                            transform: scale(1.1);
+                        }
+                    }
+
+                    img {
+                        overflow: hidden;
+                        transition: all .3s;
+                    }
+                }
+
+                .productInfo {
+                    margin-top: 15px;
+
+                    h5.productTitle {
+                        margin-bottom: 15px;
+                        font-size: 22px;
+                        
+                        a{
+                            color: #e8e6e3;
+                            text-decoration: none;
+                        }
+                    }
+
+                    p.productPrice {
+                        color: $orangeColor;
+                        font-weight: 600;
+                        margin-bottom: 15px;
+                    }
+
+                    p.productText {
+                        color: #aba499;
+                    }
+
+
+                }
+
+            }
+
+
+        }
+    }
+
+
+}

@@ -1,6 +1,11 @@
 @import "variables";
 
 
+
+.Nav__black {
+    position: fixed;
+    z-index: 5;
+}
 .headerContainer {
     width: 100%;
     background-color: #141110;
@@ -35,20 +40,23 @@
                 display: inline-block;
                 padding: 30px 20px;
                 position: relative;
+                background-color: transparent;
             }
             .clicked {
-                &::after{
-                    position: absolute;
-                    bottom: 10px;
-                    left: 10%;
-                    content: "";
-                    width: 0%;
-                    height: 4px;
-                    background-color: $whiteColor;
-                    transition: all 0.3s ease-in-out;
-                    width: 80%;
-                    border-radius: 2px;
-                }
+                color: $orangeColor;
+
+                // &::after{
+                //     position: absolute;
+                //     bottom: 10px;
+                //     left: 10%;
+                //     content: "";
+                //     width: 0%;
+                //     height: 4px;
+                //     background-color: $whiteColor;
+                //     transition: all 0.3s ease-in-out;
+                //     width: 80%;
+                //     border-radius: 2px;
+                // }
             }
         }
 
