@@ -21,6 +21,12 @@ const Shop = () => {
         setBurgers(products.filter((product) => (product.name).toLowerCase().includes(searchValue.toLowerCase())));
     }, [searchValue])
 
+    useEffect(() => {
+        window.scrollTo("0px", "0px");
+        // window.scrollTo()
+    }, [])
+
+
 
     const changeTab = (typeName) => {
         setShowFood(typeName);
@@ -60,25 +66,7 @@ const Shop = () => {
                                     
                                 }
                             </>}
-                            {showFood === "grid" && <>
-                                {
-                                    burgers.map((product) => (
-                                        <div className={styles.col_6} key={product.id}>
-                                            <div className={styles.productImageContainer}>
-                                                <Link to={`/product-details/${product.id}`}>
-                                                    <img src={product.image} alt="productImage" className={styles.image} />
-                                                </Link>
-                                            </div>  
-                                            <div className={styles.productInfo}>
-                                                <h5 className={styles.productTitle}><Link to={`/product-details/${product.id}`}>{product.name}</Link></h5>
-                                                <p className={styles.productPrice}>{product.price}</p>
-                                                <p className={styles.productText}>{product.description}</p>
-                                            </div>
-                                        </div>
-                                    ))
-                                    
-                                }
-                            </>}
+
 
 
                             {showFood === "list" && <>
@@ -90,23 +78,6 @@ const Shop = () => {
                                             </Link>
                                             <div>
                                                 
-                                                <h6 className={styles.productName}><Link to={`/product-details/${product.id}`}>{product.name}</Link></h6>
-                                                <p className={styles.productPrice}>{product.price}</p>
-                                                <p className={styles.productDescription}>{product.description}</p>
-                                            </div>
-                                        </div>
-                                    ))
-                                    
-                                }
-                            </>}
-                            {showFood === "list" && <>
-                                {
-                                    burgers.map((product) => (
-                                        <div className={styles.product} key={product.id}>
-                                            <Link to={`/product-details/${product.id}`} className={styles.productImage}>
-                                                <img src={product.image} alt="image10" />
-                                            </Link>
-                                            <div>
                                                 <h6 className={styles.productName}><Link to={`/product-details/${product.id}`}>{product.name}</Link></h6>
                                                 <p className={styles.productPrice}>{product.price}</p>
                                                 <p className={styles.productDescription}>{product.description}</p>

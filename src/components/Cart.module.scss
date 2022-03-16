@@ -83,6 +83,14 @@
 .cartBody {
   padding-right: 40px;
 
+
+  .scrollBarContainer {
+    position: relative;
+    height: 70vh;
+    overflow: scroll;
+    margin-bottom: 100px;
+  }
+
   .cartList {
       padding-right: 20px;
   }

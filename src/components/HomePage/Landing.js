@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from "./Landing.module.scss";
 import { BsArrowRightShort } from "react-icons/bs";
 
 
 const Landing = () => {
+
+    useEffect(() => {
+        window.scrollTo("0px", "0px");
+        // window.scrollTo()
+    }, [])
     return (
         <div className={styles.landingContainer}>
             <div className={styles.landingbackground}>

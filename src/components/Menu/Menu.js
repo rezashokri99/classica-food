@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styles from "./Menu.module.scss";
 import { productsProvider } from "../contexts/ProductsContext";
 import { Link } from 'react-router-dom';
@@ -15,7 +15,12 @@ const Menu = () => {
   
     const changeTab = (tabName) => {
         setShowFood(tabName);
-      }
+    }
+
+    useEffect(() => {
+        window.scrollTo("0px", "0px");
+        // window.scrollTo()
+    }, [])
 
 
     return (
@@ -47,7 +52,9 @@ const Menu = () => {
                             {
                                 products.map((product) => (
                                 <div className={styles.product} key={product.id}>
-                                    <img src={product.image} alt="image10" />
+                                    <Link to={`/product-details/${product.id}`}>
+                                        <img src={product.image} alt="image10" />
+                                    </Link>
                                     <div className={styles.productInfo}>
                                         <div className={styles.productHeader}>
                                             <h5><Link to={`/product-details/${product.id}`}>{product.name}</Link></h5>
@@ -66,10 +73,12 @@ const Menu = () => {
                             {
                                 appetizers.map((product) => (
                                 <div className={styles.product} key={product.id}>
-                                    <img src={product.image} alt="image10" />
+                                    <Link to={`/product-details/${product.id}`}>
+                                        <img src={product.image} alt="image10" />
+                                    </Link>
                                     <div className={styles.productInfo}>
                                         <div className={styles.productHeader}>
-                                            <h5><a href='#2'>{product.name}</a></h5>
+                                        <h5><Link to={`/product-details/${product.id}`}>{product.name}</Link></h5>
                                             <p>{product.price}</p>
                                         </div>
                                         <p className={styles.productText}>
@@ -85,10 +94,12 @@ const Menu = () => {
                             {
                                 burgers.map((product) => (
                                 <div className={styles.product} key={product.id}>
-                                    <img src={product.image} alt="image10" />
+                                    <Link to={`/product-details/${product.id}`}>
+                                        <img src={product.image} alt="image10" />
+                                    </Link>
                                     <div className={styles.productInfo}>
                                         <div className={styles.productHeader}>
-                                            <h5><a href='#2'>{product.name}</a></h5>
+                                            <h5><Link to={`/product-details/${product.id}`}>{product.name}</Link></h5>
                                             <p>{product.price}</p>
                                         </div>
                                         <p className={styles.productText}>
@@ -104,10 +115,12 @@ const Menu = () => {
                             {
                                 drinks.map((product) => (
                                 <div className={styles.product} key={product.id}>
-                                    <img src={product.image} alt="image10" />
+                                    <Link to={`/product-details/${product.id}`}>
+                                        <img src={product.image} alt="image10" />
+                                    </Link>
                                     <div className={styles.productInfo}>
                                         <div className={styles.productHeader}>
-                                            <h5><a href='#2'>{product.name}</a></h5>
+                                            <h5><Link to={`/product-details/${product.id}`}>{product.name}</Link></h5>
                                             <p>{product.price}</p>
                                         </div>
                                         <p className={styles.productText}>

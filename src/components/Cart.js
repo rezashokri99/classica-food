@@ -14,7 +14,7 @@ const Cart = () => {
 
 
     const [showCart, setShowCart] = useContext(showCartProvider);
-    const [cartList, setCartList] = useContext(cartListProvider);
+    const [cartList, dispatch] = useContext(cartListProvider);
     
 
     useEffect(() => {
@@ -40,58 +40,71 @@ const Cart = () => {
 
 
   const priceHandler = (price) => {
-    if (price.split("-").length === 2) {
-    let priceArray = price.split("-");
-    return (+priceArray[0].split("$")[0]);
-    }
-    else {
-    let priceArray = price.split("$");
-    return (+priceArray[0].split("$")[0])
-    }
-  }
-
-  const subtractHandler = (id) => {
-    const cartListCopy = [...cartList];
-    const productIndex = cartListCopy.findIndex(product => product.id === id);
-    let product = cartListCopy.find((product) => product.id === id);
-
-    if (product.quantity > 1) {
-        product.quantity--;
-        cartListCopy[productIndex] = product;
-        localStorage.setItem("cartList", JSON.stringify(cartListCopy));
-        setCartList(JSON.parse(localStorage.getItem("cartList")));
+    if (price.includes("-")) {
+        let priceArray = price.split("-");
+        return (+priceArray[0].split("$")[0]).toFixed(2);
+        
     }else {
-        cartListCopy.splice(productIndex, 1);
-        localStorage.setItem("cartList", JSON.stringify(cartListCopy));
-        setCartList(JSON.parse(localStorage.getItem("cartList")));
+        let priceArray = price.split("$");
+        return (+priceArray[0]).toFixed(2);
     }
+  }
+
+  const subtractHandler = (product) => {
+    // const cartListCopy = [...cartList];
+    // const productIndex = cartListCopy.findIndex(p => p.id === product.id);
+    // let product = cartListCopy.find((product) => product.id === id);
+    dispatch({type: "downQuantity", product: product});
+    // if (product.quantity > 1) {
+    //     product.quantity--;
+    //     cartListCopy[productIndex] = product;
+    //     localStorage.setItem("cartList", JSON.stringify(cartListCopy));
+    //     // setCartList(JSON.parse(localStorage.getItem("cartList")));
+    // }else {
+    //     cartListCopy.splice(productIndex, 1);
+    //     localStorage.setItem("cartList", JSON.stringify(cartListCopy));
+    //     // setCartList(JSON.parse(localStorage.getItem("cartList")));
+    // }
 
 
   }
 
-  const addHandler = (id) => {
-    const cartListCopy = [...cartList];
-    const productIndex = cartListCopy.findIndex(product => product.id === id);
-    let product = cartListCopy.find((product) => product.id === id);
+  const addHandler = (product) => {
+    // const cartListCopy = [...cartList];
+    // const productIndex = cartListCopy.findIndex(product => product.id === id);
+    // let product = cartListCopy.find((product) => product.id === id);
+    dispatch({type: "upQuantity", product: product});
 
-    product.quantity++;
-    cartListCopy[productIndex] = product;
-    localStorage.setItem("cartList", JSON.stringify(cartListCopy));
-    setCartList(JSON.parse(localStorage.getItem("cartList")));
+    // product.quantity++;
+    // cartListCopy[productIndex] = product;
+    // localStorage.setItem("cartList", JSON.stringify(cartListCopy));
+    // setCartList(JSON.parse(localStorage.getItem("cartList")));
   }
 
   
-  const deleteHandler = (id) => {
-    const cartListCopy = [...cartList];
-    const productIndex = cartListCopy.findIndex(product => product.id === id);
+  const deleteHandler = (product) => {
+    // const cartListCopy = [...cartList];
+    // const productIndex = cartListCopy.findIndex(product => product.id === id);
+    dispatch({type: "remove", product: product});
     
-    cartListCopy.splice(productIndex, 1);
+    // cartListCopy.splice(productIndex, 1);
 
-    localStorage.setItem("cartList", JSON.stringify(cartListCopy));
-    setCartList(JSON.parse(localStorage.getItem("cartList")));
+    // localStorage.setItem("cartList", JSON.stringify(cartListCopy));
+    // setCartList(JSON.parse(localStorage.getItem("cartList")));
   }
 
 
+  const totalPriceHandler = () => {
+    let totalPrice = 0;
+    cartList.map((product) => {
+        let priceArray = product.price.split("$");
+        let priceNumber = (+priceArray[0]);
+        let quantity = product.quantity;
+        
+        totalPrice+= (priceNumber * quantity);
+    })
+    return totalPrice.toFixed(2);
+  }
 
 
     return (
@@ -107,12 +120,12 @@ const Cart = () => {
 
             <div className={styles.cartBody}>
 
-                <Element name="test7" className="element" id="containerElement" style={{
-                    position: 'relative',
-                    height: 'fitContent',
-                    minHeight: "780px",
-                    overflow: 'scroll',
-                    marginBottom: '100px'
+                <Element className={styles.scrollBarContainer} name="test7" id="containerElement" style={{
+                    // position: 'relative',
+                    // height: 'fitContent',
+                    // minHeight: "400px",
+                    // overflow: 'scroll',
+                    // marginBottom: '100px'
                 }}>
                     <div className={styles.cartList}>
                         {
@@ -133,14 +146,14 @@ const Cart = () => {
                                             </div>
 
                                             <div className={styles.cartItemQuantity}>
-                                                <span className={styles.subtractQty} onClick={() => subtractHandler(product.id)}> <FaMinus /> </span>
+                                                <span className={styles.subtractQty} onClick={() => subtractHandler(product)}> <FaMinus /> </span>
                                                 <p>{product.quantity}</p>
-                                                <span className={styles.addQty} onClick={() => addHandler(product.id)}> <FaPlus /> </span>
+                                                <span className={styles.addQty} onClick={() => addHandler(product)}> <FaPlus /> </span>
                                             </div>
 
                                             <div className={styles.cartItemPrice}>{product.quantity * priceHandler(product.price)} $</div>
                                             
-                                            <div className={styles.closeBtn} onClick={() => deleteHandler(product.id)}>
+                                            <div className={styles.closeBtn} onClick={() => deleteHandler(product)}>
                                                 <span></span>
                                                 <span></span>
                                             </div>
@@ -181,7 +194,7 @@ const Cart = () => {
             </div>
 
             <div className={styles.cartFooter}>
-                <h4>Total: <span>299.99$</span></h4>
+                <h4>Total: <span>{totalPriceHandler()}</span></h4>
                 <a href="#1" className={styles.checkoutBtn}>Checkout</a>
             </div>
 

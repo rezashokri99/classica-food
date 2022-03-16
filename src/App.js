@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useReducer, useState } from 'react';
 import Layout from "./components/Layout/Layout";
 import HomePage from './components/HomePage/HomePage';
 import Menu from './components/Menu/Menu';
@@ -7,28 +7,91 @@ import { Route, Routes } from 'react-router-dom';
 import Shop from './components/Shop/Shop';
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import Cart from './components/Cart';
-import { productsProvider } from './components/contexts/ProductsContext';
-
 
 export const showCartProvider = React.createContext();
 export const cartListProvider = React.createContext();
+
+
+
+const cartlistLS = JSON.parse(localStorage.getItem("cartList"));
+const initialState = cartlistLS ? cartlistLS : [];
+
+if (!cartlistLS) {
+  localStorage.setItem("cartList", JSON.stringify([]));
+  
+}
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "add":{
+      let productsList = [...state]
+      let product = action.product;
+        
+      product.quantity = 1;
+      productsList.push(product);  
+
+      localStorage.setItem("cartList", JSON.stringify(productsList));
+      return productsList;
+    }
+    
+    case "upQuantity": {
+      let productsList = [...state];
+      let product = action.product;
+      let productIndex = productsList.findIndex((p) => p.id === product.id);
+      
+      product.quantity += 1;
+      productsList[productIndex] = product;
+
+      localStorage.setItem("cartList", JSON.stringify(productsList));
+      return productsList;
+    }
+
+    case "downQuantity": {
+      let productsList = [...state];
+      let product = action.product;
+      let productIndex = productsList.findIndex((p) => p.id === product.id);
+      
+      product.quantity -= 1;
+      productsList[productIndex] = product;
+
+      localStorage.setItem("cartList", JSON.stringify(productsList));
+      return productsList;
+    }
+
+    case "remove": {
+      let productsList = [...state];
+      let product = action.product;
+      let productIndex = productsList.findIndex((p) => p.id === product.id);
+      
+      productsList.splice(productIndex, 1);
+
+      localStorage.setItem("cartList", JSON.stringify(productsList));
+      return productsList;
+    }
+
+  
+    default:
+      break;
+  }
+}
+
+
 function App() {
 
   const [showCart, setShowCart] = useState(false);
-  const cartlistLS = JSON.parse(localStorage.getItem("cartList"));
-  const cartlistContext = useContext(productsProvider);
-  const [cartList, setCartList] = useState(cartlistLS ? cartlistLS : cartlistContext );
-  
+
+
+  // const [cartList, setCartList] = useState(cartlistLS ? cartlistLS : []);
+  const [cartList , dispatch] = useReducer(reducer, initialState);
   return (
       <showCartProvider.Provider value={[showCart, setShowCart]}>
-      <cartListProvider.Provider value={[cartList, setCartList]}>
+      <cartListProvider.Provider value={[cartList, dispatch]}>
         <div className="App">
           <Layout>
           <Cart />
             <Routes>
               <Route path='/' exact element={<HomePage />} />
               <Route path='/menu' element={<Menu />} />
-              <Route path='/product-details/:id' element={<ProductDetails />} />
+              <Route path='/product-details/:id' element={<ProductDetails dispatch={dispatch} />} />
               <Route path='/shop' element={<Shop />} />
             </Routes>
           </Layout>

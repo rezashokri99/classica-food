@@ -3,23 +3,44 @@ import { Link, useParams } from 'react-router-dom';
 import styles from "./ProductDetails.module.scss";
 import { FaStar } from "react-icons/fa";
 import { cartListProvider } from '../../App';
+import { productsProvider } from '../contexts/ProductsContext';
 
 
 
 const ProductDetails = () => {
 
     const [quantity, setQuantity] = useState(1);
-
-    const [cartList, setCartList] = useContext(cartListProvider);
+    const cartlistContext = useContext(productsProvider);
+    const [cartList, dispatch] = useContext(cartListProvider);
 
     const { id } = useParams();
-    const [productSeleted, setProductSeleted] = useState(cartList.find((product) => product.id === (+id)));
-    console.log(cartList);
+    const productInLS = cartList.find((product) => product.id === (+id));
+    const productInContext = cartlistContext.find((product) => product.id === (+id));
+    const [productSeleted, setProductSeleted] = useState(productInLS ? productInLS : productInContext);
+    // const [productSeleted, setProductSeleted] = useState(cartlistContext.find((product) => product.id === (+id)));
+    
+    useEffect(() => {
+        const cartlistLS = JSON.parse(localStorage.getItem("cartList"));
+        let product = cartlistLS.find((product) => product.id === (+id));
+        if (!product) {
+            const a = cartList.find((product) => product.id === productSeleted.id)
+            if (!a) {
+                const product = {...productSeleted, quantity: 0 }
+                setProductSeleted(product);
+            }
+        }
+    },[cartList])
 
+    useEffect(() => {
+        window.scrollTo("0px", "0px");
+        // window.scrollTo()
+    }, [])
 
     // useEffect(() => {
-    //     setProductSeleted(cartList.find((product) => product.id === (+id)));
-    // },[])
+    //     setProductSeleted((cartList.length > 0 ? cartList :cartlistContext).find((product) => product.id === (+id)))
+    // }, [])
+
+
 
     const changeQuantityHandler = (e) => {
         if ((+e.target.value) > 0) {
@@ -27,27 +48,43 @@ const ProductDetails = () => {
         }
     }
 
-    const submitHanlder = (e) => {
+    const submitHandler = (e) => {
         e.preventDefault();
-        const productPurchased = {...productSeleted, quantity: quantity };
-        const cartListCopy = [...cartList];
-        const oldProductIndex = cartListCopy.findIndex(product => product.id === productPurchased.id);
-        let oldProduct = cartListCopy.find((product) => product.id === productPurchased.id);
-        
-        if (oldProduct) {
-            oldProduct.quantity += quantity;
-            cartListCopy[oldProductIndex] = oldProduct;
-            localStorage.setItem("cartList", JSON.stringify(cartListCopy));
-            setCartList(cartListCopy);
-        } else {
-            cartList.push(productPurchased);
-            localStorage.setItem("cartList", JSON.stringify(cartListCopy));
-            setCartList(cartList);
+        if (productSeleted.quantity >= 1) {
+            dispatch({type: "upQuantity", product: productSeleted});
+        }else {
+            dispatch({type: "add", product: productSeleted});
         }
-        setProductSeleted(cartListCopy.find((product) => product.id === (+id)));
-
-
     }
+
+
+    // const submitHanlder = (e) => {
+    //     // e.preventDefault();
+    //     const productPurchased = {...productSeleted, quantity: quantity };
+    //     let cartListCopy = [];
+    //     if (cartList) {
+    //         cartListCopy = cartList;
+    //     }
+
+    //     let oldProduct = cartListCopy.find((product) => product.id === productPurchased.id);
+    //     if (oldProduct) {
+    //         const oldProductIndex = cartListCopy.findIndex(product => product.id === productPurchased.id);
+            
+    //         oldProduct.quantity += quantity;
+    //         cartListCopy[oldProductIndex] = oldProduct;
+    //         localStorage.setItem("cartList", JSON.stringify(cartListCopy));
+    //         // setCartList(cartListCopy);
+    //     }else {
+    //         cartListCopy.push(productPurchased);
+    //         localStorage.setItem("cartList", JSON.stringify(cartListCopy));
+    //         // setCartList(cartList);
+    //     }
+    //     let oldProductss = cartList.find((product) => product.id === productPurchased.id);
+
+    //     setProductSeleted({...productPurchased, quantity: oldProductss.quantity});
+
+    // }
+
 
 
     return (
@@ -120,13 +157,13 @@ const ProductDetails = () => {
 
                         </div>
                         
-                        <form className={styles.countProductContainer} onSubmit={submitHanlder}>
+                        <form className={styles.countProductContainer} >
                             <div>
                                 <label>Quantity</label>
                                 <input type="number" onChange={changeQuantityHandler} name="quantity" value={quantity} />
                             </div>
 
-                            <button type="submit" name="button"> Add to Cart </button>
+                            <a href='#1' onClick={(e) => submitHandler(e)} type="submit" name="button"> Add to Cart </a>
 
                         </form>
 
