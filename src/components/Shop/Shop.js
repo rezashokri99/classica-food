@@ -5,6 +5,7 @@ import { FaThList } from "react-icons/fa";
 import { GoChevronRight } from "react-icons/go";
 import { productsProvider } from '../contexts/ProductsContext';
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 const Shop = () => {
@@ -45,12 +46,12 @@ const Shop = () => {
                                     burgers.map((product) => (
                                         <div className={styles.col_6} key={product.id}>
                                             <div className={styles.productImageContainer}>
-                                                <a href="#1">
+                                                <Link to={`/product-details/${product.id}`}>
                                                     <img src={product.image} alt="productImage" className={styles.image} />
-                                                </a>
+                                                </Link>
                                             </div>  
                                             <div className={styles.productInfo}>
-                                                <h5 className={styles.productTitle}><a href="#1">{product.name}</a></h5>
+                                                <h5 className={styles.productTitle}><Link to={`/product-details/${product.id}`}>{product.name}</Link></h5>
                                                 <p className={styles.productPrice}>{product.price}</p>
                                                 <p className={styles.productText}>{product.description}</p>
                                             </div>
@@ -64,12 +65,12 @@ const Shop = () => {
                                     burgers.map((product) => (
                                         <div className={styles.col_6} key={product.id}>
                                             <div className={styles.productImageContainer}>
-                                                <a href="#1">
+                                                <Link to={`/product-details/${product.id}`}>
                                                     <img src={product.image} alt="productImage" className={styles.image} />
-                                                </a>
+                                                </Link>
                                             </div>  
                                             <div className={styles.productInfo}>
-                                                <h5 className={styles.productTitle}><a href="#1">{product.name}</a></h5>
+                                                <h5 className={styles.productTitle}><Link to={`/product-details/${product.id}`}>{product.name}</Link></h5>
                                                 <p className={styles.productPrice}>{product.price}</p>
                                                 <p className={styles.productText}>{product.description}</p>
                                             </div>
@@ -84,9 +85,12 @@ const Shop = () => {
                                 {
                                     burgers.map((product) => (
                                         <div className={styles.product} key={product.id}>
-                                            <a href='#1' className={styles.productImage}><img src={product.image} alt="image10" /></a>
+                                            <Link to={`/product-details/${product.id}`} className={styles.productImage}>
+                                                <img src={product.image} alt="image10" />
+                                            </Link>
                                             <div>
-                                                <h6 className={styles.productName}><a href='#1'>{product.name}</a></h6>
+                                                
+                                                <h6 className={styles.productName}><Link to={`/product-details/${product.id}`}>{product.name}</Link></h6>
                                                 <p className={styles.productPrice}>{product.price}</p>
                                                 <p className={styles.productDescription}>{product.description}</p>
                                             </div>
@@ -99,9 +103,11 @@ const Shop = () => {
                                 {
                                     burgers.map((product) => (
                                         <div className={styles.product} key={product.id}>
-                                            <a href='#1' className={styles.productImage}><img src={product.image} alt="image10" /></a>
+                                            <Link to={`/product-details/${product.id}`} className={styles.productImage}>
+                                                <img src={product.image} alt="image10" />
+                                            </Link>
                                             <div>
-                                                <h6 className={styles.productName}><a href='#1'>{product.name}</a></h6>
+                                                <h6 className={styles.productName}><Link to={`/product-details/${product.id}`}>{product.name}</Link></h6>
                                                 <p className={styles.productPrice}>{product.price}</p>
                                                 <p className={styles.productDescription}>{product.description}</p>
                                             </div>
@@ -155,9 +161,15 @@ const Shop = () => {
                                 {
                                     topBurgers.map((product) => (
                                         <div className={styles.product} key={product.id}>
-                                            <a href='#1' className={styles.productImage}><img src={product.image} alt="image10" /></a>
+                                            <Link to={`/product-details/${product.id}`} className={styles.productImage}>
+                                                <img src={product.image} alt="image10" />
+                                            </Link>
                                             <div>
-                                                <h6><a href='#1'>{product.name} Coated With Butter and Thyme</a></h6>
+                                                <h6>
+                                                    <Link to={`/product-details/${product.id}`}>
+                                                        {product.name} Coated With Butter and Thyme
+                                                    </Link>
+                                                </h6>
                                                 <div className={styles.productRating}>
                                                     <FaStar className={styles.activeRating} />    
                                                     <FaStar className={styles.activeRating} />    

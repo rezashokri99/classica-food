@@ -1,24 +1,27 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Layout from "./components/Layout/Layout";
 import HomePage from './components/HomePage/HomePage';
 import Menu from './components/Menu/Menu';
 import { Route, Routes } from 'react-router-dom';
-import ProductsContext from './components/contexts/ProductsContext';
 import Shop from './components/Shop/Shop';
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import Cart from './components/Cart';
+import { productsProvider } from './components/contexts/ProductsContext';
 
 
 export const showCartProvider = React.createContext();
+export const cartListProvider = React.createContext();
 function App() {
 
   const [showCart, setShowCart] = useState(false);
-  
+  const cartlistLS = JSON.parse(localStorage.getItem("cartList"));
+  const cartlistContext = useContext(productsProvider);
+  const [cartList, setCartList] = useState(cartlistLS ? cartlistLS : cartlistContext );
   
   return (
-    <ProductsContext>
       <showCartProvider.Provider value={[showCart, setShowCart]}>
+      <cartListProvider.Provider value={[cartList, setCartList]}>
         <div className="App">
           <Layout>
           <Cart />
@@ -30,8 +33,8 @@ function App() {
             </Routes>
           </Layout>
         </div>
+      </cartListProvider.Provider>
       </showCartProvider.Provider>
-    </ProductsContext>
   );
 }
 

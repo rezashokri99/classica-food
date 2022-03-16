@@ -20,7 +20,8 @@ const ProductsContext = ({children}) => {
         image: image10,
         name: "Nuggets",
         price: "8.99$",
-        description: "Freshly baked buns with tomatoes, mayonaise, lettuce, bacon, 250 oz beef patties..."
+        description: "Freshly baked buns with tomatoes, mayonaise, lettuce, bacon, 250 oz beef patties...",
+        quantity: 0
         },
         {
         id: 2,
@@ -28,7 +29,8 @@ const ProductsContext = ({children}) => {
         image: image11,
         name: "Onion Rings",
         price: "12.00$ - 24.00$",
-        description: "Freshly baked buns with tomatoes, mayonaise, lettuce, bacon, 250 oz beef patties..."
+        description: "Freshly baked buns with tomatoes, mayonaise, lettuce, bacon, 250 oz beef patties...",
+        quantity: 0
         },
         {
         id: 3,
@@ -36,7 +38,8 @@ const ProductsContext = ({children}) => {
         image: image12,
         name: "Quesadillas",
         price: "32.00$ - 48.00$",
-        description: "Freshly baked buns with tomatoes, mayonaise, lettuce, bacon, 250 oz beef patties..."
+        description: "Freshly baked buns with tomatoes, mayonaise, lettuce, bacon, 250 oz beef patties...",
+        quantity: 0
         },
     
         {
@@ -45,7 +48,8 @@ const ProductsContext = ({children}) => {
         image: image13,
         name: "Crusty Dusty",
         price: "8.99$",
-        description: "Freshly baked buns with tomatoes, mayonaise, lettuce, bacon, 250 oz beef patties..."
+        description: "Freshly baked buns with tomatoes, mayonaise, lettuce, bacon, 250 oz beef patties...",
+        quantity: 0
         },
         {
         id: 5,
@@ -53,7 +57,8 @@ const ProductsContext = ({children}) => {
         image: image14,
         name: "Cheesy Bomb",
         price: "12.00$ - 24.00$",
-        description: "Freshly baked buns with tomatoes, mayonaise, lettuce, bacon, 250 oz beef patties..."
+        description: "Freshly baked buns with tomatoes, mayonaise, lettuce, bacon, 250 oz beef patties...",
+        quantity: 0
         },
         {
         id: 6,
@@ -61,7 +66,8 @@ const ProductsContext = ({children}) => {
         image: image15,
         name: "Fish Burger",
         price: "32.00$ - 48.00$",
-        description: "Freshly baked buns with tomatoes, mayonaise, lettuce, bacon, 250 oz beef patties..."
+        description: "Freshly baked buns with tomatoes, mayonaise, lettuce, bacon, 250 oz beef patties...",
+        quantity: 0
         },
     
         {
@@ -70,7 +76,8 @@ const ProductsContext = ({children}) => {
         image: image16,
         name: "Iced Tea",
         price: "8.99$",
-        description: "Freshly baked buns with tomatoes, mayonaise, lettuce, bacon, 250 oz beef patties..."
+        description: "Freshly baked buns with tomatoes, mayonaise, lettuce, bacon, 250 oz beef patties...",
+        quantity: 0
         },
         {
         id: 8,
@@ -78,7 +85,8 @@ const ProductsContext = ({children}) => {
         image: image17,
         name: "Mint & Lemon",
         price: "12.00$ - 24.00$",
-        description: "Freshly baked buns with tomatoes, mayonaise, lettuce, bacon, 250 oz beef patties..."
+        description: "Freshly baked buns with tomatoes, mayonaise, lettuce, bacon, 250 oz beef patties...",
+        quantity: 0
         },
         {
         id: 9,
@@ -86,7 +94,8 @@ const ProductsContext = ({children}) => {
         image: image18,
         name: "Orange Juice",
         price: "32.00$ - 48.00$",
-        description: "Freshly baked buns with tomatoes, mayonaise, lettuce, bacon, 250 oz beef patties..."
+        description: "Freshly baked buns with tomatoes, mayonaise, lettuce, bacon, 250 oz beef patties...",
+        quantity: 0
         },
     ])
 

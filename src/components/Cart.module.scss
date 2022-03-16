@@ -138,7 +138,8 @@
             color: #E1901B;
         }
 
-        input {
+        p {
+            user-select: none;
             background-color: transparent;
             border: none;
             outline: none;
@@ -150,6 +151,7 @@
     }
 
     .cartItemPrice {
+        user-select: none;
         color: $whiteColor;
         font-weight: 600;
     }

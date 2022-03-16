@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { productsProvider } from '../contexts/ProductsContext';
 import styles from "./ProductDetails.module.scss";
 import { FaStar } from "react-icons/fa";
+import { cartListProvider } from '../../App';
 
 
 
@@ -10,10 +10,16 @@ const ProductDetails = () => {
 
     const [quantity, setQuantity] = useState(1);
 
-    const products = useContext(productsProvider);
-    const { id } = useParams();
-    const productSeleted = products.find((product) => product.id === (+id));
+    const [cartList, setCartList] = useContext(cartListProvider);
 
+    const { id } = useParams();
+    const [productSeleted, setProductSeleted] = useState(cartList.find((product) => product.id === (+id)));
+    console.log(cartList);
+
+
+    // useEffect(() => {
+    //     setProductSeleted(cartList.find((product) => product.id === (+id)));
+    // },[])
 
     const changeQuantityHandler = (e) => {
         if ((+e.target.value) > 0) {
@@ -24,21 +30,22 @@ const ProductDetails = () => {
     const submitHanlder = (e) => {
         e.preventDefault();
         const productPurchased = {...productSeleted, quantity: quantity };
-        
-        const cartlistLS = JSON.parse(localStorage.getItem("cartList"));
-        let cartlist = cartlistLS ? cartlistLS : [];
-
-        const oldProductIndex = cartlist.findIndex(product => product.id === productPurchased.id);
-        let oldProduct = cartlist.find((product) => product.id === productPurchased.id);
+        const cartListCopy = [...cartList];
+        const oldProductIndex = cartListCopy.findIndex(product => product.id === productPurchased.id);
+        let oldProduct = cartListCopy.find((product) => product.id === productPurchased.id);
         
         if (oldProduct) {
             oldProduct.quantity += quantity;
-            cartlist[oldProductIndex] = oldProduct;
-            localStorage.setItem("cartList", JSON.stringify(cartlist));
+            cartListCopy[oldProductIndex] = oldProduct;
+            localStorage.setItem("cartList", JSON.stringify(cartListCopy));
+            setCartList(cartListCopy);
         } else {
-            cartlist.push(productPurchased);
-            localStorage.setItem("cartList", JSON.stringify(cartlist));
+            cartList.push(productPurchased);
+            localStorage.setItem("cartList", JSON.stringify(cartListCopy));
+            setCartList(cartList);
         }
+        setProductSeleted(cartListCopy.find((product) => product.id === (+id)));
+
 
     }
 
@@ -69,7 +76,10 @@ const ProductDetails = () => {
                     
                     <div className={styles.col_8}>
                         
-                        <h2 className={styles.productTitle}>{productSeleted.name}</h2>
+                        <div className={styles.productHeader}>
+                            <h2 className={styles.productTitle}>{productSeleted.name}</h2>
+                            <p><span>{productSeleted.quantity}</span> is in the cart</p>
+                        </div>
 
                         <div className={styles.ratingContainer}>
                             <div className={styles.productRating}>

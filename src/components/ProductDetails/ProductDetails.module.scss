@@ -130,13 +130,39 @@
             padding-left: 15px;
 
 
+            .productHeader {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
 
-            .productTitle {
-                font-size: 34px;
-                margin-bottom: 5px;
-                font-weight: 700;
-                color: $whiteColor;
+                .productTitle {
+                    font-size: 34px;
+                    margin-bottom: 5px;
+                    font-weight: 700;
+                    color: $whiteColor;
+                }
+
+
+                p {
+
+                    font-size: 16px;
+                    margin-bottom: 5px;
+                    font-weight: 700;
+                    color: $whiteColor;
+
+                    span {
+                        display: inline-block;
+                        text-align: center;
+                        vertical-align: top;
+                        color: $orangeColor;
+                        padding: 0px 6px 2px;
+                        font-size: 1.1rem;
+                        background-color: #4e4e4e;
+                        border-radius: 50%;
+                    }
+                }
             }
+
 
 
             .productRating {
