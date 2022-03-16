@@ -1,15 +1,7 @@
 import React, { useContext, useState } from 'react';
 import styles from "./Menu.module.scss";
-import image10 from "../../images/10.png";
-import image11 from "../../images/11.png";
-import image12 from "../../images/12.png";
-import image13 from "../../images/13.png";
-import image14 from "../../images/14.png";
-import image15 from "../../images/15.png";
-import image16 from "../../images/16.png";
-import image17 from "../../images/17.png";
-import image18 from "../../images/18.png";
 import { productsProvider } from "../contexts/ProductsContext";
+import { Link } from 'react-router-dom';
 
 
 
@@ -34,7 +26,8 @@ const Menu = () => {
                 <div className={styles.content}>
                     <h1>Menu</h1>    
                     <div className={styles.breadcrumb}>
-                        <p>Home / <span>Menu</span></p>
+                        <Link to="/">Home </Link> <span>/</span> <span>Menu</span>
+                        {/* <p>Home / <span>Menu</span></p> */}
                     </div>
                 </div>
             </div>
@@ -57,7 +50,7 @@ const Menu = () => {
                                     <img src={product.image} alt="image10" />
                                     <div className={styles.productInfo}>
                                         <div className={styles.productHeader}>
-                                            <h5><a href='#2'>{product.name}</a></h5>
+                                            <h5><Link to={`/product-details/${product.id}`}>{product.name}</Link></h5>
                                             <p>{product.price}</p>
                                         </div>
                                         <p className={styles.productText}>

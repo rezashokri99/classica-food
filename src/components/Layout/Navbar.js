@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FiShoppingBag } from "react-icons/fi";
 import { FiSearch } from "react-icons/fi";
 import styles from "./Navbar.module.scss";
 import logo from "../../images/logo.png";
 import { Link } from 'react-router-dom';
+import { showCartProvider } from '../../App';
 
 
 const Navbar = () => {
 
+    const [showCart, setShowCart] = useContext(showCartProvider);
     const [navActive, setNavActive] = useState("homePages");
     const [navState, setNavState] = useState(false);
-    
+
     
     const handleScroll= () => {
         if (window.pageYOffset > 100) {
@@ -56,7 +58,7 @@ const Navbar = () => {
                     <li><a href="#1" onClick={() => changeNav("contactUs")} className={`${navActive === "contactUs" && styles.clicked}`}>Contact Us</a></li>
                 </ul>
                 <ul className={styles.cartANDsearchContainer}>
-                    <li className={styles.cartContent}><FiShoppingBag /></li>
+                    <li className={styles.cartContent}><FiShoppingBag onClick={() => setShowCart((prevShowCart) => (!prevShowCart))} /></li>
                     <li className={styles.searchContent}><FiSearch /></li>
                 </ul>
             </div>  

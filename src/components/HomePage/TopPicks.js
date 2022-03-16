@@ -4,11 +4,12 @@ import { GiFrenchFries } from "react-icons/gi";
 import { GiHamburger } from "react-icons/gi";
 import { MdLiquor } from "react-icons/md";
 import { productsProvider } from "../contexts/ProductsContext";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const TopPicks = () => {
 
-  const products = useContext(productsProvider)
+  const products = useContext(productsProvider);
   const [showFood, setShowFood] = useState("appetizers");
   const [appetizers, setAppetizers] = useState(products.filter((product) => product.type === "appetizers"));
   const [burgers, setBurgers] = useState(products.filter((product) => product.type === "burgers"));
@@ -20,6 +21,11 @@ const TopPicks = () => {
     setShowFood(tabName);
   }
 
+  const navigate = useNavigate();
+
+  const goProductDetailsHandler = (id) => {
+    navigate(`/product-details/${id}`);
+  }
 
 
 
@@ -59,14 +65,14 @@ const TopPicks = () => {
             <div className={styles.row}>
               {
                 appetizers.map((product) => (
-                  <div className={styles.col_4} key={product.id}>
+                  <div className={styles.col_4} key={product.id} onClick={() => goProductDetailsHandler(product.id)}>
                     <div className={styles.productImageContainer}>
-                      <a href="#1">
+                      <Link to={`/product-details${product.id}`}>
                         <img src={product.image} alt="productImage" className={styles.image} />
-                      </a>
+                      </Link>
                     </div>  
                     <div className={styles.productInfo}>
-                      <h5 className={styles.productTitle}><a href="#1">{product.name}</a></h5>
+                      <h5 className={styles.productTitle}><Link to={`/product-details${product.id}`}>{product.name}</Link></h5>
                       <p className={styles.productPrice}>{product.price}</p>
                       <p className={styles.productText}>{product.description}</p>
                     </div>
@@ -82,14 +88,14 @@ const TopPicks = () => {
 
               {
                 burgers.map((product) => (
-                  <div className={styles.col_4} key={product.id}>
+                  <div className={styles.col_4} key={product.id} onClick={() => goProductDetailsHandler(product.id)}>
                     <div className={styles.productImageContainer}>
-                      <a href="#1">
+                      <Link to={`/product-details${product.id}`}>
                         <img src={product.image} alt="productImage" className={styles.image} />
-                      </a>
+                      </Link>
                     </div>  
                     <div className={styles.productInfo}>
-                      <h5 className={styles.productTitle}><a href="#1">{product.name}</a></h5>
+                      <h5 className={styles.productTitle}><Link to={`/product-details${product.id}`}>{product.name}</Link></h5>
                       <p className={styles.productPrice}>{product.price}</p>
                       <p className={styles.productText}>{product.description}</p>
                     </div>
@@ -105,14 +111,14 @@ const TopPicks = () => {
 
               {
                 drinks.map((product) => (
-                  <div className={styles.col_4} key={product.id}>
+                  <div className={styles.col_4} key={product.id} onClick={() => goProductDetailsHandler(product.id)}>
                     <div className={styles.productImageContainer}>
-                      <a href="#1">
+                      <Link to={`/product-details${product.id}`}>
                         <img src={product.image} alt="productImage" className={styles.image} />
-                      </a>
+                      </Link>
                     </div>  
                     <div className={styles.productInfo}>
-                      <h5 className={styles.productTitle}><a href="#1">{product.name}</a></h5>
+                      <h5 className={styles.productTitle}><Link to={`/product-details${product.id}`}>{product.name}</Link></h5>
                       <p className={styles.productPrice}>{product.price}</p>
                       <p className={styles.productText}>{product.description}</p>
                     </div>

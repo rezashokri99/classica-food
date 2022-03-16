@@ -167,9 +167,16 @@
                         margin-bottom: 15px;
                         font-size: 22px;
                         
+                        
                         a{
                             color: #e8e6e3;
                             text-decoration: none;
+                            transition:all .3s;
+                            
+                       
+                            &:hover {
+                                color: $orangeColor;
+                            }
                         }
                     }
 

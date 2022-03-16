@@ -1,0 +1,243 @@
+@import "./variables";
+
+
+.cartContainer {
+    position: fixed;
+    position: fixed;
+    top: 0;
+    // right: -1200px;
+    // right: 0;
+    width: 60vw;
+    max-width: 1200px;
+    height: 100%;
+    background-color: #141515;
+    z-index: 1000;
+    transition: right .3s;
+    padding: 40px;
+
+}
+
+
+.cartHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // padding: 40px;
+
+    h3 {
+        font-size: 35px;
+        line-height: 43px;
+        font-weight: 700;
+        color: $whiteColor;
+    }
+
+
+    .closeBtn {
+        background-color: transparent;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+
+
+        &:hover {
+            span {
+                transform: rotate(90deg) !important;
+            }
+
+            span:nth-child(2) {
+                transform: rotate(-90deg) !important;
+            }
+
+        }
+        
+        span {
+            transition: 0.3s;
+            position: absolute;
+            transform-origin: center;
+            transform: rotate(45deg);
+            display: block;
+            background-color: #fff;
+            width: 3px;
+            height: 30px;
+            opacity: 1;
+            
+            
+        }
+
+        span:nth-child(2) {
+            width: 3px;
+            height: 30px;
+            opacity: 1;
+            transform: rotate(-45deg);
+        }
+
+    }
+
+}
+
+
+.cartBody {
+  padding-right: 40px;
+
+  .cartList {
+      padding-right: 20px;
+  }
+
+  .cartItemInfo {
+    position: relative;
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px dashed #9F9E9E;
+
+
+    .cartItemImage {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+
+
+        a img{
+            margin-right: 5px;
+            border-radius: 50%;
+            width: 100px;
+        }
+
+        .cartItemName {
+            
+            h5 {
+                margin-bottom: 5px;
+                a {
+                    font-size: 18px;
+                    text-decoration: none;
+                    color: $whiteColor;
+                }
+            }
+            
+
+            span {
+                font-weight: 600;
+                font-size: 14px;
+                color: #9F9E9E;
+            }
+        }
+
+    }
+
+    .cartItemQuantity {
+        display: flex;
+        align-items: center;
+
+        span {
+            cursor: pointer;
+            color: #E1901B;
+        }
+
+        input {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            color: $whiteColor;
+            width: 70px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+    }
+
+    .cartItemPrice {
+        color: $whiteColor;
+        font-weight: 600;
+    }
+
+    .closeBtn {
+        border: 1px dashed #9F9E9E;
+        border-radius: 50%;
+        background-color: transparent;
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+
+        &:hover {
+            span {
+                transform: rotate(90deg) !important;
+            }
+
+            span:nth-child(2) {
+                transform: rotate(-90deg) !important;
+            }
+
+        }
+        
+        span {
+            transition: 0.3s;
+            transform-origin: center;
+            transform: rotate(45deg);
+            background-color: #9F9E9E;
+            position: absolute;
+            width: 2px;
+            height: 15px;
+            display: block;
+            opacity: 1;
+            
+            
+        }
+
+        span:nth-child(2) {
+            transform: rotate(-45deg);
+        }
+
+    }
+    
+  }
+}
+
+.cartFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #141212;
+    padding: 40px;
+    
+
+    h4 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 700;
+        color: $whiteColor;
+    }
+
+    a.checkoutBtn {
+        text-decoration: none;
+        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+        position: relative;
+        background-color: $orangeColor;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 14px 30px;
+        transition: 0.3s;
+        text-transform: uppercase;
+        z-index: 1;
+
+        &:hover {
+            background-color: #be750f;
+        }
+    }
+
+}

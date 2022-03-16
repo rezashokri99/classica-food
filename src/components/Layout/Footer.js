@@ -78,7 +78,7 @@ const Footer = () => {
 
 
             <div className={styles.footerBottom}>
-                <p>Made with <AiFillHeart /> by <a href='https://www.instagram.com/reza_shokri99/'> reza shokri</a> © 2020</p>
+                <p>Made with <AiFillHeart /> by <a href='https://www.instagram.com/reza_shokri99/'> reza shokri</a> © 2022</p>
                 <ul>
                     <li><a href='#1'>Contact Us</a></li>
                     <li><a href='#1'>About Us</a></li>

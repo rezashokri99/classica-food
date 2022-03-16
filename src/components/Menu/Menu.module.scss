@@ -51,12 +51,21 @@
         .breadcrumb {
             margin-top: 10px;
 
-            p {
+            a {
                 font-weight: 600;
+                color: $whiteColor;
+                text-decoration: none;
+                transition: all .3s;
 
-                span {
-                    font-weight: 400;
+                &:hover {
+                    color: $orangeColor;
                 }
+
+            }
+            span {
+                color: $whiteColor;
+                font-weight: 400;
+                cursor: default;
             }
         }
     }
