@@ -27,6 +27,9 @@
     @include query(768px) {
         width: 540px;
     }
+    @include query(575px) {
+        width: 100%;
+    }
     
 
     a {
@@ -55,6 +58,14 @@
             width: 300px;
             display: flex;
             margin-bottom: 30px;
+            
+            @include query(768px) {
+                padding-left: 30px;
+            }
+
+            @include query(575px) {
+                display: none;
+            }
 
 
             .active {
@@ -81,6 +92,11 @@
 
             @include query(768px) {
                 flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            @include query(575px) {
+                padding: 0 15px;
             }
 
             .product {
@@ -89,6 +105,10 @@
                 align-items: flex-start;
 
 
+                @include query(575px) {
+                    width: 100%;
+                }
+
                 .productImage {
                     display: block;
                     width: 150px;
@@ -96,6 +116,9 @@
                     overflow: hidden;
                     background-color: #1f1f1f;
 
+                    @include query(575px) {
+                        width: 100%;
+                    }
 
                     img {
                         width: 100%;
@@ -150,6 +173,11 @@
                 width: 100%;
                 margin-bottom: 60px;
             }
+            @include query(575px) {
+                flex: 0 0 100%;
+                max-width: 100%;
+                height: 100%;
+            }
 
 
             .productImageContainer {
@@ -174,6 +202,10 @@
                     display: flex;
                     justify-content: center;
                 }
+                @include query(575px) {
+                    width: 100%;
+                    height: 100%;
+                }
 
 
                 &:hover {
@@ -190,6 +222,11 @@
                     @include query(768px) {
                         height: 350px;
                         width: 350px; 
+                    }
+
+                    @include query(575px) {
+                        width: 100%;
+                        height: 100%;
                     }
 
                 }

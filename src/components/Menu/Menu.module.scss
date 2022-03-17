@@ -13,6 +13,12 @@
     align-items: center;
     text-align: center;
 
+    @include query(768px) {
+        width: 100%;
+        height: 228px;
+        padding: 70px 0;
+    }
+
 
     .backgroundImage {
         position: absolute;
@@ -23,6 +29,7 @@
         background-repeat: no-repeat;   
         background-size: cover;
         
+
         
         &::before {
             content: '';
@@ -47,6 +54,10 @@
         
         h1 {
             font-size: 50px;
+
+            @include query(768px) {
+                font-size: 32px;
+            }
         }
 
         .breadcrumb {
@@ -97,12 +108,20 @@
         @include query(768px) {
             width: 540px;
         }
+        @include query(575px) {
+            width: 100%;
+            height: 100%;
+            padding: 0 15px;
+        }
 
 
         ul {
             list-style: none;
             display: flex;
 
+            @include query(575px) {
+                flex-direction: column;
+            }
 
             .active {
                 background-color: #E1901B;
@@ -121,6 +140,13 @@
                 margin-right: 10px;
                 background-color: rgb(23, 25, 26);
                 color: #e8e6e3;
+
+                @include query(575px) {
+                    justify-content: flex-start;
+                    margin-bottom: 10px;
+                    margin-right: 0;
+                }
+
             }
         }
     }
@@ -139,6 +165,12 @@
             width: 100%;
         }
 
+        @include query(575px) {
+            margin: 50px 0;
+            padding-left: 15px;
+        }
+
+
         .product {
             max-width: 50%;
             position: relative;
@@ -156,7 +188,21 @@
                 width: 100% !important;
             }
 
+            @include query(575px) {
+                width: 100%;
+                padding: 0;
+                flex-direction: column;
+                margin-bottom: 40px;
+            }
 
+            a:first-child {
+                @include query(575px) {
+                    width: 100%;
+                    background-color: #181a1b;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
 
             img {
                 max-width: 150px;
@@ -167,6 +213,12 @@
                 &:hover {
                     background-color: #131414;
                 }
+
+                @include query(575px) {
+                    max-width: 350px;
+                    width: 100%;
+                }
+
             }
 
             .productInfo {
@@ -183,6 +235,10 @@
                         margin-bottom: 20px;
                     }
 
+                    @include query(575px) {
+                        margin-bottom: 10px;
+                    }
+
                     
                     h5 {
                         margin-bottom: 15px;
@@ -193,6 +249,10 @@
 
                         @include query(991px) {
                             margin-bottom: 10px;
+                        }
+
+                        @include query(575px) {
+                            margin-top: 10px;
                         }
 
 

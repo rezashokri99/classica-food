@@ -19,6 +19,12 @@
         height: 1150px;
     }
 
+    @include query(575px) {
+        width: 100%;
+        padding: 0 15px;
+        height: 1300px;
+    }
+
 }
 
 
@@ -43,6 +49,12 @@
         height: 990px;
     }
 
+    @include query(575px) {
+        width: 100%;
+        padding: 50px 15px;
+        height: 1200px;
+    }
+
 
 
 
@@ -56,6 +68,11 @@
         @include query(768px) {
             padding-bottom: 0;
             margin-bottom: 0px;
+        }
+
+        @include query(575px) {
+            width: 100% !important;
+            padding: 0;
         }
 
     }
@@ -131,6 +148,13 @@
             max-width: 50%;
         }
 
+        @include query(575px) {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin: 0;
+        }
+        
+
 
         h5 {
             margin-bottom: 20px;
@@ -148,6 +172,9 @@
                 margin: 10px 0 0;
                 position: relative;
 
+                @include query(575px) {
+                    margin: 0;
+                }
 
                 a {
                     position: relative;
@@ -155,6 +182,9 @@
                     align-items: center;
                     color: #aba499;
 
+                    @include query(575px) {
+                        font-size: 14px;
+                    }
 
                     svg {
                         color: $orangeColor;
@@ -191,6 +221,12 @@
             margin: 0;
         }
 
+        @include query(575px) {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin: 0;
+        }
+
         h5 {
             margin-bottom: 20px;
             color: $whiteColor;
@@ -199,6 +235,11 @@
 
         .imagesContainer div {
             
+
+            @include query(575px) {
+                width: 100%;
+            }
+
             &:first-child {
                 margin-bottom:30px;
             }
@@ -211,6 +252,11 @@
                 @include query(768px) {
                     width: 150px;
                 }
+
+                @include query(575px) {
+                    width: 25%;
+                }
+
             }
 
         }
@@ -227,6 +273,7 @@
     display: flex;
     justify-content: space-between;
 
+
     @include query(1190px) {
         width: 960px;
     }
@@ -237,6 +284,11 @@
 
     @include query(768px) {
         width: 540px;
+    }
+
+    @include query(575px) {
+        flex-direction: column;
+        width: 100%;
     }
 
     
@@ -270,6 +322,9 @@
         list-style: none;
         display: flex;
 
+        @include query(575px) {
+            margin-top: 30px;
+        }
 
         a {
             color: #aba499;

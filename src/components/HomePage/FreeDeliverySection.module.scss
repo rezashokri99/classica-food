@@ -75,6 +75,10 @@
                 width: 90px;
                 height: 2px;
                 background-color: $orangeColor;
+
+                @include query(575px) {
+                    width: 60px;
+                }
             }
     
             &::after {
@@ -87,7 +91,10 @@
                 width: 90px;
                 height: 2px;
                 background-color: $orangeColor;
-    
+                
+                @include query(575px) {
+                    width: 60px;
+                }
             }
         }
 

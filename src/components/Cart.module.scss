@@ -1,4 +1,5 @@
 @import "./variables";
+@import "./mixins";
 
 
 .cartContainer {
@@ -15,6 +16,14 @@
     transition: right .3s;
     padding: 40px;
 
+    @include query(991px) {
+        width: 100vw;
+    }
+
+    @include query(768px) {
+        padding: 20px;
+    }
+
 }
 
 
@@ -29,6 +38,10 @@
         line-height: 43px;
         font-weight: 700;
         color: $whiteColor;
+
+        @include query(768px) {
+            font-size: 26px;
+        }
     }
 
 
@@ -83,6 +96,9 @@
 .cartBody {
   padding-right: 40px;
 
+  @include query(768px) {
+    padding: 0;
+  }
 
   .scrollBarContainer {
     position: relative;
@@ -104,16 +120,30 @@
     border-bottom: 2px dashed #9F9E9E;
 
 
+    @include query(768px) {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+
     .cartItemImage {
         display: flex;
         align-items: center;
         margin-bottom: 10px;
-
+        @include query(768px) {
+            
+            width: 100%;
+        }
 
         a img{
             margin-right: 5px;
             border-radius: 50%;
             width: 100px;
+
+            @include query(768px) {
+                width: 70px;
+            }
         }
 
         .cartItemName {
@@ -137,6 +167,15 @@
 
     }
 
+    .cartItemDesc {
+        flex: 0 0 50%;
+        display: flex;
+        justify-content: space-between;
+        @include query(768px) {
+            flex: 0 0 100%;
+            width: 100%;
+        }
+    }
     .cartItemQuantity {
         display: flex;
         align-items: center;
@@ -221,7 +260,15 @@
     width: 100%;
     background-color: #141212;
     padding: 40px;
-    
+
+    @include query(768px) {
+        padding: 20px;
+    }
+
+    @include query(575px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
     h4 {
         margin: 0;
@@ -244,6 +291,12 @@
         transition: 0.3s;
         text-transform: uppercase;
         z-index: 1;
+
+
+        @include query(575px) {
+            margin-top: 15px;
+            width: 100%;
+        }
 
         &:hover {
             background-color: #be750f;

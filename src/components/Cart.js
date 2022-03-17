@@ -145,17 +145,20 @@ const Cart = () => {
                                                 </div>
                                             </div>
 
-                                            <div className={styles.cartItemQuantity}>
-                                                <span className={styles.subtractQty} onClick={() => subtractHandler(product)}> <FaMinus /> </span>
-                                                <p>{product.quantity}</p>
-                                                <span className={styles.addQty} onClick={() => addHandler(product)}> <FaPlus /> </span>
-                                            </div>
+                                            <div className={styles.cartItemDesc}>
+                                                <div className={styles.cartItemQuantity}>
+                                                    <span className={styles.subtractQty} onClick={() => subtractHandler(product)}> <FaMinus /> </span>
+                                                    <p>{product.quantity}</p>
+                                                    <span className={styles.addQty} onClick={() => addHandler(product)}> <FaPlus /> </span>
+                                                </div>
 
-                                            <div className={styles.cartItemPrice}>{product.quantity * priceHandler(product.price)} $</div>
-                                            
-                                            <div className={styles.closeBtn} onClick={() => deleteHandler(product)}>
-                                                <span></span>
-                                                <span></span>
+                                                <div className={styles.cartItemPrice}>{product.quantity * priceHandler(product.price)} $</div>
+                                                
+                                                <div className={styles.closeBtn} onClick={() => deleteHandler(product)}>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+
                                             </div>
 
 
