@@ -42,6 +42,29 @@ const Navbar = () => {
 
 
 
+    // window.addEventListener("click", function () {
+    //     let humbergerMenu = document.getElementById("humbergerMenu");
+    //     // addEventListener("blue", function () {
+    //     //     console.log("object");
+    //     // })
+    //     let isClickedOnHumberMenu = false;
+        
+    //     function changeIsClicked() {isClickedOnHumberMenu = true}
+    //     humbergerMenu.onclick = changeIsClicked();
+    //     console.log(isClickedOnHumberMenu);
+    //     if (isClickedOnHumberMenu) {
+    //         isClickedOnHumberMenu = false;
+    //         console.log("click");
+    //         return;
+    //     }else {
+    //         // if (showAsideMenu) {
+    //         //     console.log(showAsideMenu);
+    //         //     setShowAsideMenu(false);
+    //         // }
+    //     }
+    //     return 
+    // });
+
 
 
 
@@ -60,7 +83,7 @@ const Navbar = () => {
                 <ul className={styles.cartANDsearchContainer}>
                     <li className={styles.cartContent}><FiShoppingBag onClick={() => setShowCart((prevShowCart) => (!prevShowCart))} /></li>
                     <li className={styles.searchContent}><FiSearch /></li>
-                    <div className={styles.humbergerMenu} onClick={() => setShowAsideMenu((prevShowCart) => (!prevShowCart))} >
+                    <div id="humbergerMenu" className={styles.humbergerMenu} onClick={() => setShowAsideMenu((prevShowCart) => (!prevShowCart))} >
                         <span></span>
                         <span></span>
                         <span></span>

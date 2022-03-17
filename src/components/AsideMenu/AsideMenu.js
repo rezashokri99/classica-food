@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import styles from "./AsideMenu.module.scss";
 import logo from "../../images/logo.png";
 import { Link, useLocation } from 'react-router-dom';
@@ -9,7 +9,8 @@ import { asideMenuProvider } from '../../App';
 const AsideMenu = () => {
 
     const pathLocation = useLocation().pathname;
-
+    
+    const asideRef = useRef();
 
     const [showAsideMenu, setShowAsideMenu] = useContext(asideMenuProvider);
 
@@ -20,13 +21,44 @@ const AsideMenu = () => {
         }
     }, true);
 
+    // window.addEventListener("click", function () {
+    //     let asideMenu = document.getElementById("asideMenuContainer");
+    //     console.log(asideMenu);
+    //     // addEventListener("blue", function () {
+    //     //     console.log("object");
+    //     // })
+        
+
+    //     asideMenu.onclick = () => setIsClickedOnAsideMenu(true);
+        
+    //     console.log(isClickedOnAsideMenu);
+
+    //     if (isClickedOnAsideMenu) {
+    //         console.log("clicked");
+    //         setIsClickedOnAsideMenu(false)
+    //         return;
+    //     }else {
+    //         console.log(showAsideMenu);
+    //         if (showAsideMenu) {
+    //             console.log(showAsideMenu);
+    //             setShowAsideMenu(false);
+    //         }
+    //     }
+    //     return;
+    // });
+    useEffect(() => {
+        document.getElementById("asideMenuContainer").addEventListener("blue", function () {
+            console.log("object");
+        })
+        
+    }, true)
 
 
     return (
-        <div className={styles.asideMenuContainer} style={showAsideMenu ? {left: "0px"} : {left: "-270px"}}>
+        <div ref={asideRef} id="asideMenuContainer" className={styles.asideMenuContainer} style={showAsideMenu ? {left: "0px"} : {left: "-270px"}}>
             <div className={styles.asideMenuHeader}>
                 <img src={logo} alt="logo" />
-                <div className={styles.closeBtn} onClick={() => setShowAsideMenu(false)}>
+                <div id="closeBtnAsideMenu" className={styles.closeBtn} onClick={() => setShowAsideMenu(false)}>
                     <span></span>
                     <span></span>
                 </div>

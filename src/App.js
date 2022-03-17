@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useContext, useReducer, useState } from 'react';
+import React, { useContext, useEffect, useReducer, useState } from 'react';
 import Layout from "./components/Layout/Layout";
 import HomePage from './components/HomePage/HomePage';
 import Menu from './components/Menu/Menu';
@@ -91,9 +91,59 @@ function App() {
   const [showCart, setShowCart] = useState(false);
   const [showAsideMenu, setShowAsideMenu] = useState(false);
 
-
+  const [isClickedOnAsideMenu, setIsClickedOnAsideMenu] = useState(false);
+  const [isClickedOnHumberMenu, setIsClickedOnHumberMenu] = useState(false);
+  const [isclickedCloseBtnAsideMenu, setIsclickedCloseBtnAsideMenu] = useState(false);
   // const [cartList, setCartList] = useState(cartlistLS ? cartlistLS : []);
   const [cartList , dispatch] = useReducer(reducer, initialState);
+
+
+
+
+let asideMenu = document.getElementById("asideMenuContainer");
+let humbergerMenu = document.getElementById("humbergerMenu");
+let closeBtnAsideMenu = document.getElementById("closeBtnAsideMenu");
+
+useEffect(() => {
+  asideMenu = document.getElementById("asideMenuContainer");
+  humbergerMenu = document.getElementById("humbergerMenu");
+  closeBtnAsideMenu = document.getElementById("closeBtnAsideMenu");
+}, [])
+
+
+
+window.addEventListener("click", function () {
+  asideMenu = document.getElementById("asideMenuContainer");
+  humbergerMenu = document.getElementById("humbergerMenu");
+  closeBtnAsideMenu = document.getElementById("closeBtnAsideMenu");
+
+  asideMenu.onclick = () => setIsClickedOnAsideMenu(true);
+  humbergerMenu.onclick = () => setIsClickedOnHumberMenu(true);
+  closeBtnAsideMenu.onclick = () => setIsclickedCloseBtnAsideMenu(true);
+  if (isclickedCloseBtnAsideMenu) {
+    setShowAsideMenu(false);
+    setIsclickedCloseBtnAsideMenu(false)
+    
+  }else if (isClickedOnAsideMenu) {
+    setIsClickedOnAsideMenu(false);
+    setShowAsideMenu(true);
+
+    
+    return;
+  }else if (isClickedOnHumberMenu) {
+    setShowAsideMenu(true);
+    setIsClickedOnHumberMenu(false);
+    return;
+  }else {
+    if (showAsideMenu) {
+      setShowAsideMenu(false);
+    }
+    return;
+  }
+  return;
+});
+
+
   return (
     <asideMenuProvider.Provider value={[showAsideMenu, setShowAsideMenu]}>
       <showCartProvider.Provider value={[showCart, setShowCart]}>
