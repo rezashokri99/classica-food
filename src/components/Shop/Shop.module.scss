@@ -20,6 +20,10 @@
     @include query(1190px) {
         width: 960px;
     }
+
+    @include query(991px) {
+        width: 690px;
+    }
     
 
     a {
@@ -37,6 +41,12 @@
         width: 100%;
         // padding-right: 15px;
         // padding-left: 15px;
+
+        @include query(991px) {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
 
         .filterContainer {
             width: 300px;
@@ -140,6 +150,11 @@
                     height: 290px;
                 }
 
+                @include query(991px) {
+                    height: 320px;
+                    width: 320px;          
+                }
+
 
                 &:hover {
                     img {
@@ -156,6 +171,8 @@
 
             .productInfo {
                 margin-top: 15px;
+
+                
 
                 h5.productTitle {
                     margin-bottom: 10px;
@@ -194,6 +211,9 @@
         padding-right: 15px;
         padding-left: 15px;
 
+        @include query(991px) {
+            display: none;           
+        }
 
         .searchContainer {
 

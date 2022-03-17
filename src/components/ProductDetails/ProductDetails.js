@@ -2,13 +2,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import styles from "./ProductDetails.module.scss";
 import { FaStar } from "react-icons/fa";
-import { cartListProvider } from '../../App';
+import { asideMenuProvider, cartListProvider } from '../../App';
 import { productsProvider } from '../contexts/ProductsContext';
 
 
 
 const ProductDetails = () => {
 
+    const [showAsideMenu, setShowAsideMenu] = useContext(asideMenuProvider);
     const [quantity, setQuantity] = useState(1);
     const cartlistContext = useContext(productsProvider);
     const [cartList, dispatch] = useContext(cartListProvider);
@@ -33,7 +34,7 @@ const ProductDetails = () => {
 
     useEffect(() => {
         window.scrollTo("0px", "0px");
-        // window.scrollTo()
+        setShowAsideMenu(false);
     }, [])
 
     // useEffect(() => {

@@ -6,10 +6,12 @@ import { GoChevronRight } from "react-icons/go";
 import { productsProvider } from '../contexts/ProductsContext';
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { asideMenuProvider } from '../../App';
 
 
 const Shop = () => {
 
+    const [showAsideMenu, setShowAsideMenu] = useContext(asideMenuProvider);
     const products = useContext(productsProvider);
     const [showFood, setShowFood] = useState("grid");
     const [searchValue, setSearchValue] = useState("");
@@ -23,9 +25,8 @@ const Shop = () => {
 
     useEffect(() => {
         window.scrollTo("0px", "0px");
-        // window.scrollTo()
+        setShowAsideMenu(false);
     }, [])
-
 
 
     const changeTab = (typeName) => {

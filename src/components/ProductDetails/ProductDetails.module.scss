@@ -94,6 +94,10 @@
         width: 960px;
     }
 
+    @include query(991px) {
+        width: 690px;
+    }
+
 
     .row {
         display: flex;

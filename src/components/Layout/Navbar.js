@@ -3,17 +3,19 @@ import { FiShoppingBag } from "react-icons/fi";
 import { FiSearch } from "react-icons/fi";
 import styles from "./Navbar.module.scss";
 import logo from "../../images/logo.png";
-import { Link } from 'react-router-dom';
-import { showCartProvider } from '../../App';
+import { Link, useLocation } from 'react-router-dom';
+import { asideMenuProvider, showCartProvider } from '../../App';
 
 
 const Navbar = () => {
 
+    const [showAsideMenu, setShowAsideMenu] = useContext(asideMenuProvider);
     const [showCart, setShowCart] = useContext(showCartProvider);
-    const [navActive, setNavActive] = useState("homePages");
     const [navState, setNavState] = useState(false);
     
-    const menuRef = React.useRef()
+    const menuRef = React.useRef();
+    const pathLocation = useLocation().pathname;
+
 
     
     const handleScroll= () => {
@@ -30,20 +32,6 @@ const Navbar = () => {
 
     }
 
-    
-    
-    // window.addEventListener('resize', function() {
-    //     console.log(menuRef.current.style.display === "none");
-    //     if (window.innerWidth <= 991) {
-    //         menuRef.current.style.display = "none";
-    //     } else {
-    //         if(menuRef.current.style.display === "none") {
-    //             menuRef.current.style.display = "flex";
-    //         }
-    //     }
-        
-    // }, true);
-
     window.addEventListener("scroll", handleScroll);
     useEffect(() => {
 
@@ -55,10 +43,6 @@ const Navbar = () => {
 
 
 
-    const changeNav = (navName) => {
-        setNavActive(navName);
-    }
-
 
 
     return (
@@ -66,17 +50,17 @@ const Navbar = () => {
             <div className={styles.navbarContainer}>
                 <img src={logo} alt="logo" />
                 <ul ref={menuRef} className={styles.menuContainer}>
-                    <li><Link to={"/"} onClick={() => changeNav("homePages")} className={`${navActive === "homePages" && styles.clicked}`}>Home Pages</Link></li>
-                    <li><Link to={"/menu"} onClick={() => changeNav("menu")} className={`${navActive === "menu" && styles.clicked}`}>Menu</Link></li>
-                    <li><Link to={"/shop"} onClick={() => changeNav("shop")} className={`${navActive === "shop" && styles.clicked}`}>Shop</Link></li>
-                    <li><a href="#1" onClick={() => changeNav("pages")} className={`${navActive === "pages" && styles.clicked}`}>Pages</a></li>
-                    <li><a href="#1" onClick={() => changeNav("blog")} className={`${navActive === "blog" && styles.clicked}`}>Blog</a></li>
-                    <li><a href="#1" onClick={() => changeNav("contactUs")} className={`${navActive === "contactUs" && styles.clicked}`}>Contact Us</a></li>
+                <li><Link to={"/"}  className={pathLocation === "/" ? styles.clicked : ""}>Home Pages</Link></li>
+                <li><Link to={"/menu"}  className={pathLocation === "/menu" ? styles.clicked : ""}>Menu</Link></li>
+                <li><Link to={"/shop"}  className={pathLocation === "/shop" ? styles.clicked : ""}>Shop</Link></li>
+                <li><a href="#1"  className={pathLocation === "/pages" ? styles.clicked : ""}>Pages</a></li>
+                <li><a href="#1"  className={pathLocation === "/blog" ? styles.clicked : ""}>Blog</a></li>
+                <li><a href="#1"  className={pathLocation === "/contact-us" ? styles.clicked : ""}>Contact Us</a></li>
                 </ul>
                 <ul className={styles.cartANDsearchContainer}>
                     <li className={styles.cartContent}><FiShoppingBag onClick={() => setShowCart((prevShowCart) => (!prevShowCart))} /></li>
                     <li className={styles.searchContent}><FiSearch /></li>
-                    <div className={styles.humbergerMenu}>
+                    <div className={styles.humbergerMenu} onClick={() => setShowAsideMenu((prevShowCart) => (!prevShowCart))} >
                         <span></span>
                         <span></span>
                         <span></span>

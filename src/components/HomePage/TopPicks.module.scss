@@ -134,6 +134,10 @@
             @include query(1190px) {
                 width: 960px;
             }
+
+            @include query(991px) {
+                width: 690px;
+            }
     
 
 
@@ -160,6 +164,11 @@
                         width: 290px;
                         height: 290px;
                     }
+                   
+                    @include query(991px) {
+                        width: 210px;
+                        height: 210px;
+                    } 
 
 
                     &:hover {

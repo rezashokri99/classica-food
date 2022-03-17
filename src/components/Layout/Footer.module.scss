@@ -31,6 +31,10 @@
         height: 765px;
         width: 960px;
     }
+    @include query(991px) {
+        width: 690px;
+    }
+
 
 
 
@@ -149,6 +153,12 @@
             max-width: 50%;
         }
 
+        @include query(991px) {
+            margin: 0;
+            flex: 0 0 60%;
+            max-width: 60%;
+        }
+
 
         h5 {
             margin-bottom: 20px;
@@ -185,6 +195,11 @@
     @include query(1190px) {
         width: 960px;
     }
+
+    @include query(991px) {
+        width: 690px;
+    }
+
     
     a {
         text-decoration: none;

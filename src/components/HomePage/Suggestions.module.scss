@@ -36,6 +36,30 @@
 
 
         .col_6:last-child {
+
+            a:last-child {
+                .titleSuggestion {
+                    
+                    &::before {
+                        
+                        @include query(991px) {
+                            width: 690px;
+                            height: 340px;
+                        }
+
+                    }
+    
+                    &::after {
+                        
+                        @include query(991px) {
+                            width: 650px;
+                            height: 300px;
+                        }
+                    }
+        
+                }
+            }
+
             a {
                 @include query(1190px) {
                     height: 210px;
@@ -54,8 +78,8 @@
                     }
 
                     @include query(991px) {
-                        width: 690px;
-                        height: 325px;
+                        width: 690px !important;
+                        height: auto !important;
                     }
 
                 }
@@ -80,7 +104,7 @@
 
                         @include query(991px) {
                             width: 690px;
-                            height: 325px;
+                            height: 100%;
                         }
 
                     }
@@ -92,8 +116,8 @@
                         }
 
                         @include query(991px) {
-                            width: 289px;
-                            height: 650px;
+                            width: 650px;
+                            height: 280px;
                         }
                     }
         
@@ -125,8 +149,8 @@
             a {
                 display: inline-block;
                 position: relative;
-                width: 100%;
-                overflow: hidden;        
+                width: 94%;
+                overflow: hidden !important; 
 
                     @include query(1190px) {
                         height: 450px;
@@ -147,7 +171,7 @@
                 }
                 
                 img {
-                    overflow: hidden;
+                    overflow: hidden !important;
                     transition: all .3s;
                     width: 540px;
                     
@@ -210,7 +234,7 @@
                         content: '';
                         position: absolute;
                         top: 20px;
-                        left: 20px;
+                        left: 15px;
                         border: 2px solid #fff;
                         width: calc(100% - 40px);
                         height: calc(100% - 40px);

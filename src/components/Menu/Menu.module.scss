@@ -91,6 +91,9 @@
         @include query(1190px) {
             width: 960px;
         }
+        @include query(991px) {
+            width: 690px;
+        }
 
         ul {
             list-style: none;
@@ -127,6 +130,11 @@
         margin-left: -15px;
         width: 100%;
 
+        @include query(991px) {
+            flex-direction: column;
+            width: 100%;
+        }
+
         .product {
             max-width: 50%;
             position: relative;
@@ -137,6 +145,13 @@
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 30px;
+
+
+            @include query(991px) {
+                max-width: 100%;
+                width: 100% !important;
+            }
+
 
 
             img {
@@ -156,12 +171,27 @@
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
+
+
+                    @include query(991px) {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        margin-bottom: 20px;
+                    }
+
                     
                     h5 {
                         margin-bottom: 15px;
                         font-size: 22px;
                         margin: 0 0 20px;
                         font-weight: 700;
+
+
+                        @include query(991px) {
+                            margin-bottom: 10px;
+                        }
+
+
                         a {
                             text-decoration: none;
                             color: $whiteColor;

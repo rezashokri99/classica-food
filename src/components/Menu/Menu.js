@@ -2,10 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import styles from "./Menu.module.scss";
 import { productsProvider } from "../contexts/ProductsContext";
 import { Link } from 'react-router-dom';
+import { asideMenuProvider } from '../../App';
 
 
 
 const Menu = () => {
+
+    const [showAsideMenu, setShowAsideMenu] = useContext(asideMenuProvider);
 
     const products = useContext(productsProvider)
     const [showFood, setShowFood] = useState("all");
@@ -19,7 +22,7 @@ const Menu = () => {
 
     useEffect(() => {
         window.scrollTo("0px", "0px");
-        // window.scrollTo()
+        setShowAsideMenu(false);
     }, [])
 
 

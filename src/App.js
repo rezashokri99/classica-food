@@ -7,9 +7,11 @@ import { Route, Routes } from 'react-router-dom';
 import Shop from './components/Shop/Shop';
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import Cart from './components/Cart';
+import AsideMenu from './components/AsideMenu/AsideMenu';
 
 export const showCartProvider = React.createContext();
 export const cartListProvider = React.createContext();
+export const asideMenuProvider = React.createContext();
 
 
 
@@ -78,26 +80,30 @@ const reducer = (state, action) => {
 function App() {
 
   const [showCart, setShowCart] = useState(false);
+  const [showAsideMenu, setShowAsideMenu] = useState(false);
 
 
   // const [cartList, setCartList] = useState(cartlistLS ? cartlistLS : []);
   const [cartList , dispatch] = useReducer(reducer, initialState);
   return (
+    <asideMenuProvider.Provider value={[showAsideMenu, setShowAsideMenu]}>
       <showCartProvider.Provider value={[showCart, setShowCart]}>
-      <cartListProvider.Provider value={[cartList, dispatch]}>
-        <div className="App">
-          <Layout>
-          <Cart />
-            <Routes>
-              <Route path='/' exact element={<HomePage />} />
-              <Route path='/menu' element={<Menu />} />
-              <Route path='/product-details/:id' element={<ProductDetails dispatch={dispatch} />} />
-              <Route path='/shop' element={<Shop />} />
-            </Routes>
-          </Layout>
-        </div>
-      </cartListProvider.Provider>
+        <cartListProvider.Provider value={[cartList, dispatch]}>
+          <div className="App">
+            <Layout>
+            <AsideMenu />
+            <Cart />
+              <Routes>
+                <Route path='/' exact element={<HomePage />} />
+                <Route path='/menu' element={<Menu />} />
+                <Route path='/product-details/:id' element={<ProductDetails dispatch={dispatch} />} />
+                <Route path='/shop' element={<Shop />} />
+              </Routes>
+            </Layout>
+          </div>
+        </cartListProvider.Provider>
       </showCartProvider.Provider>
+    </asideMenuProvider.Provider>
   );
 }
 
