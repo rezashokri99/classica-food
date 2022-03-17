@@ -98,12 +98,23 @@
         width: 690px;
     }
 
+    @include query(768px) {
+        width: 540px;
+        height: 1200px;
+        padding: 50px 0;
+    }
+
 
     .row {
         display: flex;
         flex-wrap: wrap;
         margin-right: -15px;
         margin-left: -15px;
+
+        @include query(768px) {
+            flex-direction: column;
+        }
+
 
         .col_4 {
             flex: 0 0 33.333333%;
@@ -113,9 +124,15 @@
             padding-right: 15px;
             padding-left: 15px;
 
+            @include query(768px) {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
             
             .productImage {
                 margin-bottom: 30px;
+                display: flex;
+                justify-content: center;
 
                 img {
                     max-width: 100%;
@@ -138,6 +155,11 @@
             padding-right: 15px;
             padding-left: 15px;
 
+
+            @include query(768px) {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
 
             .productHeader {
                 display: flex;

@@ -94,6 +94,10 @@
         @include query(991px) {
             width: 690px;
         }
+        @include query(768px) {
+            width: 540px;
+        }
+
 
         ul {
             list-style: none;

@@ -1,4 +1,5 @@
 @import "../variables";
+@import "../mixins";
 
 
 .freeDeliverySection {
@@ -94,6 +95,11 @@
         h2 {
             font-size: 42px;
             margin-bottom: 20px;
+            
+            @include query(991px) {
+                font-size: 26px;
+            }
+
         }
     }
 

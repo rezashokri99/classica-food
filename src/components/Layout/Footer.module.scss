@@ -15,6 +15,10 @@
     @include query(1190px) {
         height: 765px;
     }
+    @include query(768px) {
+        height: 1150px;
+    }
+
 }
 
 
@@ -34,6 +38,10 @@
     @include query(991px) {
         width: 690px;
     }
+    @include query(768px) {
+        width: 540px;
+        height: 990px;
+    }
 
 
 
@@ -43,6 +51,13 @@
         position: relative;
         padding-right: 15px;
         padding-left: 15px;
+
+
+        @include query(768px) {
+            padding-bottom: 0;
+            margin-bottom: 0px;
+        }
+
     }
     ul {
         list-style: none;
@@ -59,6 +74,10 @@
         @include query(1190px) {
             flex: 0 0 50%;
             max-width: 50%;
+        }
+        @include query(768px) {
+            flex: 0 0 100%;
+            max-width: 100%;
         }
 
         .footerLogo img {
@@ -107,6 +126,12 @@
             max-width: 25%;
         }
 
+        @include query(768px) {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+
         h5 {
             margin-bottom: 20px;
             color: $whiteColor;
@@ -151,6 +176,7 @@
         @include query(1190px) {
             flex: 0 0 50%;
             max-width: 50%;
+            margin: 0;
         }
 
         @include query(991px) {
@@ -159,6 +185,11 @@
             max-width: 60%;
         }
 
+        @include query(768px) {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin: 0;
+        }
 
         h5 {
             margin-bottom: 20px;
@@ -176,6 +207,10 @@
                 width: 96px;
                 margin-right: 30px;
                 cursor: pointer;
+
+                @include query(768px) {
+                    width: 150px;
+                }
             }
 
         }
@@ -198,6 +233,10 @@
 
     @include query(991px) {
         width: 690px;
+    }
+
+    @include query(768px) {
+        width: 540px;
     }
 
     

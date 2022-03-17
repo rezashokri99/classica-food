@@ -16,6 +16,16 @@
         flex-direction: column;
         align-items: center;
     }
+
+    @include query(768px) {
+        height: 1170px;
+    }
+
+    @include query(575px) {
+        height: fit-content;
+        padding: 80px 0 50px;
+    }
+
     .suggestionsContent {
         width: 1140px;
         display: flex;
@@ -34,6 +44,16 @@
             align-items: center;
         }
 
+        @include query(768px) {
+            width: 540px;
+        }
+
+        @include query(575px) {
+            width: 100%;
+            padding: 0 20px;
+        }
+
+
 
         .col_6:last-child {
 
@@ -44,7 +64,17 @@
                         
                         @include query(991px) {
                             width: 690px;
-                            height: 340px;
+                            height: 324px;
+                        }
+
+                        @include query(768px) {
+                            width: 510px;
+                            height: 240px;
+                        }
+                        @include query(575px) {
+                            width: 100% !important;
+                            height: 98.5% !important;
+                            max-width: 100% !important;
                         }
 
                     }
@@ -53,7 +83,12 @@
                         
                         @include query(991px) {
                             width: 650px;
-                            height: 300px;
+                            height: 280px;
+                        }
+
+                        @include query(768px) {
+                            width: 475px !important;
+                            height: 200px !important;
                         }
                     }
         
@@ -71,6 +106,19 @@
                     height: 325px;
                 }
 
+                @include query(768px) {
+                    width: 510px;
+                    height: 240px;
+                }
+                
+                @include query(575px) {
+                    width: 100% !important;
+                    height: fit-content !important;
+                    max-width: 100% !important;
+                    margin-left: 30px;
+                    margin-right: 30px;
+                }
+
 
                 img {
                     @include query(1190px) {
@@ -80,6 +128,16 @@
                     @include query(991px) {
                         width: 690px !important;
                         height: auto !important;
+                    }
+
+                    @include query(768px) {
+                        width: 510px !important;
+                        height: 240px !important;
+                    }
+                    
+                    @include query(575px) {
+                        width: 100% !important;
+                        height: fit-content !important;
                     }
 
                 }
@@ -95,6 +153,18 @@
                         width: 690px;
                         height: 325px;
                     }
+
+                    @include query(768px) {
+                        width: 510px;
+                        height: 240px;
+                    }
+
+                    @include query(575px) {
+                        width: 100% !important;
+                        height: 100% !important;
+                        max-width: 100% !important;
+                    }
+
     
                     &::before {
                         @include query(1190px) {
@@ -105,6 +175,16 @@
                         @include query(991px) {
                             width: 690px;
                             height: 100%;
+                        }
+
+                        @include query(768px) {
+                            width: 510px;
+                            height: 240px;
+                        }
+                        @include query(575px) {
+                            width: 100% !important;
+                            height: 98.5% !important;
+                            max-width: 100% !important;
                         }
 
                     }
@@ -119,11 +199,27 @@
                             width: 650px;
                             height: 280px;
                         }
+
+                        @include query(768px) {
+                            width: 475px !important;
+                            height: 200px !important;
+                        }
+
+                        @include query(575px) {
+                            display: none;
+                        }
                     }
         
                 }
 
 
+            }
+        }
+
+        
+        .col_6:first-child {
+            @include query(575px) {
+                margin-bottom: 50px;
             }
         }
 
@@ -144,6 +240,17 @@
                 height: 720px;
             }
 
+            @include query(768px) {
+                width: 540px;
+                height: 540px;
+            }
+            
+            @include query(575px) {
+                width: 100%;
+                height: fit-content !important;
+                max-width: 100%;
+            }
+
             
             
             a {
@@ -160,6 +267,19 @@
                     @include query(991px) {
                         width: 690px !important;
                         height: 690px !important;
+                    }
+
+                    @include query(768px) {
+                        width: 510px !important;
+                        height: 510px !important;
+                    }
+
+                    @include query(575px) {
+                        width: 100% !important;
+                        max-width: 100% !important;
+                        height: fit-content !important;
+                        margin-left: 30px;
+                        margin-right: 30px;
                     }
 
 
@@ -182,6 +302,16 @@
                     @include query(991px) {
                         width: 690px !important;
                         height: 690px !important;
+                    }
+
+                    @include query(768px) {
+                        width: 510px !important;
+                        height: 510px !important;
+                    }
+
+                    @include query(575px) {
+                        width: 100% !important;
+                        height: 100% !important;
                     }
 
 
@@ -207,6 +337,18 @@
                         height: 690px;
                     }
 
+                    @include query(768px) {
+                        width: 510px !important;
+                        height: 510px !important;
+                    }
+
+                    @include query(575px) {
+                        width: 100% !important;
+                        height: 100% !important;
+                        max-width: 100% !important;
+                        padding: 30px;
+                    }
+
                     &::before {
                         content: '';
                         position: absolute;
@@ -228,6 +370,19 @@
                             width: 690px;
                             height: 690px;
                         }
+
+                        @include query(768px) {
+                            width: 510px;
+                            height: 510px;
+                        }
+
+                        @include query(575px) {
+                            width: 100% !important;
+                            height: 99% !important;
+                            max-width: 100% !important;
+                        }
+
+
                     }
 
                     &::after {
@@ -249,6 +404,16 @@
                             width: 650px;
                             height: 650px;
                         }
+
+                        @include query(768px) {
+                            width: 470px;
+                            height: 470px;
+                        }
+
+                        @include query(575px) {
+                            display: none;
+                        }
+
                     }
 
 
@@ -262,6 +427,10 @@
                         margin-bottom: 5px;
                         font-size: 26px;
                         color: $whiteColor;
+
+                        @include query(575px) {
+                            font-size: 24px;
+                        }
                     }
     
                 }

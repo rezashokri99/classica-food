@@ -32,11 +32,19 @@
         @include query(991px) {
             max-width: 720px;
         }
+        
+        @include query(768px) {
+            width: 540px;
+        }
 
 
 
         img {
             width: 180px;
+
+            @include query(991px) {
+                width: 150px;
+            }
         }
 
         ul {
