@@ -1,4 +1,5 @@
 @import "../variables";
+@import "../mixins";
 
 
 
@@ -88,6 +89,10 @@
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+
+    @include query(1190px) {
+        width: 960px;
+    }
 
 
     .row {

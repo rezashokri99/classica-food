@@ -1,4 +1,5 @@
 @import "../variables";
+@import "../mixins";
 
 
 .suggestionsContainer {
@@ -9,6 +10,12 @@
     display: flex;
     justify-content: center;
 
+    @include query(991px) {
+        height: 1520px;
+        padding: 0;
+        flex-direction: column;
+        align-items: center;
+    }
     .suggestionsContent {
         width: 1140px;
         display: flex;
@@ -16,16 +23,122 @@
         margin-right: -15px;
         margin-left: -15px;
         
+
+        @include query(1190px) {
+            width: 960px;
+        }
+
+        @include query(991px) {
+            width: 720px;
+            flex-direction: column;
+            align-items: center;
+        }
+
+
+        .col_6:last-child {
+            a {
+                @include query(1190px) {
+                    height: 210px;
+                    width: 450px;
+                }
+
+                @include query(991px) {
+                    width: 690px;
+                    height: 325px;
+                }
+
+
+                img {
+                    @include query(1190px) {
+                        width: 450px;
+                    }
+
+                    @include query(991px) {
+                        width: 690px;
+                        height: 325px;
+                    }
+
+                }
+                
+
+                .titleSuggestion {
+                    @include query(1190px) {
+                        height: 211px;
+                        width: 450px;
+                    }
+
+                    @include query(991px) {
+                        width: 690px;
+                        height: 325px;
+                    }
+    
+                    &::before {
+                        @include query(1190px) {
+                            height: 211px;
+                            width: 450px;
+                        }
+
+                        @include query(991px) {
+                            width: 690px;
+                            height: 325px;
+                        }
+
+                    }
+    
+                    &::after {
+                        @include query(1190px) {
+                            height: 170px;
+                            width: 410px;
+                        }
+
+                        @include query(991px) {
+                            width: 289px;
+                            height: 650px;
+                        }
+                    }
+        
+                }
+
+
+            }
+        }
+
         .col_6 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             width: 50%;
             height: 570px;
+
+            @include query(1190px) {
+                height: 450px;
+            }
+
+
+            @include query(991px) {
+                width: 720px;
+                height: 720px;
+            }
+
             
             
             a {
                 display: inline-block;
                 position: relative;
-                width: 540px;
+                width: 100%;
                 overflow: hidden;        
+
+                    @include query(1190px) {
+                        height: 450px;
+                        width: 450px;
+                    }
+
+                    @include query(991px) {
+                        width: 690px !important;
+                        height: 690px !important;
+                    }
+
+
                 
                 &:hover {
                     img {
@@ -37,6 +150,17 @@
                     overflow: hidden;
                     transition: all .3s;
                     width: 540px;
+                    
+                    @include query(1190px) {
+                        width: 450px;
+                    }
+
+                    @include query(991px) {
+                        width: 690px !important;
+                        height: 690px !important;
+                    }
+
+
                 }
                     
                 .titleSuggestion {
@@ -49,6 +173,16 @@
                     z-index: 1;                    
                     
 
+                    @include query(1190px) {
+                        height: 450px;
+                        width: 450px;
+                    }
+
+                    @include query(991px) {
+                        width: 690px;
+                        height: 690px;
+                    }
+
                     &::before {
                         content: '';
                         position: absolute;
@@ -58,6 +192,18 @@
                         height: 100%;
                         background-color: rgba(0,0,0,.6);
                         z-index: -1;
+                       
+                       
+                       
+                        @include query(1190px) {
+                            height: 450px;
+                            width: 450px;
+                        }
+
+                        @include query(991px) {
+                            width: 690px;
+                            height: 690px;
+                        }
                     }
 
                     &::after {
@@ -68,6 +214,17 @@
                         border: 2px solid #fff;
                         width: calc(100% - 40px);
                         height: calc(100% - 40px);
+                 
+                 
+                        @include query(1190px) {
+                            height: 410px;
+                            width: 410px;
+                        }
+
+                        @include query(991px) {
+                            width: 650px;
+                            height: 650px;
+                        }
                     }
 
 
@@ -93,6 +250,11 @@
                 .titleSuggestion {
                     width: 540px;
                     height: 540px;
+
+
+                    // @include query(1190px) {
+                    //     width: 450px;
+                    // }
                 }
 
             }
@@ -104,6 +266,12 @@
                 .titleSuggestion {
                     width: 540px;
                     height: 254px;
+
+
+
+                    // @include query(1190px) {
+                    //     width: 450px;
+                    // }
                 }
             }
             
@@ -118,3 +286,11 @@
 
 
 }
+
+
+// @media(max-width: 1199px){
+//     .suggestionsContent {
+//         width: 960px !important;
+//     }
+// }
+

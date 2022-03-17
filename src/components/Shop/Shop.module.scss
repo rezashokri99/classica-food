@@ -1,4 +1,5 @@
 @import "../variables";
+@import "../mixins";
 
 
 
@@ -14,6 +15,11 @@
 .container {
     width: 1140px;
     height: 100%;
+
+
+    @include query(1190px) {
+        width: 960px;
+    }
     
 
     a {
@@ -119,7 +125,7 @@
             flex: 0 0 50%;
             max-width: 50%;
             width: 100%;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
 
 
 
@@ -127,6 +133,12 @@
                 height: 350px;
                 width: 350px;
                 background-color: #17191a;
+
+
+                @include query(1190px) {
+                    width: 290px;
+                    height: 290px;
+                }
 
 
                 &:hover {
@@ -137,6 +149,7 @@
 
                 img {
                     overflow: hidden;
+                    width: 100%;
                     transition: all .3s;
                 }
             }
@@ -145,7 +158,7 @@
                 margin-top: 15px;
 
                 h5.productTitle {
-                    margin-bottom: 15px;
+                    margin-bottom: 10px;
                     font-size: 22px;
                     
                     a{

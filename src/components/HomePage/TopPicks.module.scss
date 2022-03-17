@@ -1,4 +1,5 @@
 @import "../variables";
+@import "../mixins";
 
 
 
@@ -118,7 +119,9 @@
     .tabContent {
 
         transition: opacity .15s linear;
-
+        display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         
         .row {
             display: flex;
@@ -127,6 +130,11 @@
             margin-left: -15px;
             margin-top: 50px;
 
+
+            @include query(1190px) {
+                width: 960px;
+            }
+    
 
 
             .col_4 {
@@ -148,6 +156,12 @@
                     background-color: #17191a;
 
 
+                    @include query(1190px) {
+                        width: 290px;
+                        height: 290px;
+                    }
+
+
                     &:hover {
                         img {
                             transform: scale(1.1);
@@ -156,6 +170,7 @@
 
                     img {
                         overflow: hidden;
+                        width: 100%;
                         transition: all .3s;
                     }
                 }
