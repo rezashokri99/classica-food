@@ -52,9 +52,20 @@ const ProductDetails = () => {
     const submitHandler = (e) => {
         e.preventDefault();
         if (productSeleted.quantity >= 1) {
-            dispatch({type: "upQuantity", product: productSeleted});
+            let productforSend = productSeleted.quantity + quantity;
+            let productForPost = {...productSeleted, quantity: productforSend};
+            productForPost.quantity--;
+
+            dispatch({type: "upQuantity", product: productForPost});
+            setProductSeleted(productForPost);
+
         }else {
-            dispatch({type: "add", product: productSeleted});
+            let productforSend = productSeleted.quantity + quantity;
+            let productForPost = {...productSeleted, quantity: productforSend};
+
+            
+            dispatch({type: "add", product: productForPost});
+            setProductSeleted(productForPost);
         }
     }
 

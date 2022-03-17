@@ -107,6 +107,8 @@ const Cart = () => {
   }
 
 
+
+
     return (
         <div className={styles.cartContainer} style={showCart ? {right: "0px"} : {right: "-1200px"}}>
             

@@ -25,6 +25,7 @@ if (!cartlistLS) {
 const reducer = (state, action) => {
   switch (action.type) {
     case "add":{
+      console.log(action.product);
       let productsList = [...state]
       let product = action.product;
         
@@ -54,9 +55,17 @@ const reducer = (state, action) => {
       
       product.quantity -= 1;
       productsList[productIndex] = product;
+      
+      if (product.quantity < 1) {
+        productsList.splice(productIndex, 1);
 
-      localStorage.setItem("cartList", JSON.stringify(productsList));
-      return productsList;
+        localStorage.setItem("cartList", JSON.stringify(productsList));
+        return productsList;
+      }
+      else {
+        localStorage.setItem("cartList", JSON.stringify(productsList));
+        return productsList;
+      }
     }
 
     case "remove": {

@@ -58,6 +58,7 @@
             font-size: 60px;
             line-height: 68px;
             margin-top: 40px;
+            text-align: center;
 
             @include query(991px) {
                 font-size: 40px;
