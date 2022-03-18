@@ -14,6 +14,18 @@ const ProductDetails = () => {
     const cartlistContext = useContext(productsProvider);
     const [cartList, dispatch] = useContext(cartListProvider);
 
+    const [bunSelect, setBunSelect] = useState("");
+    const [sanceSelect, setSanceSelect] = useState("");
+
+    const changeBunSelectHandler = (e) => {
+        setBunSelect(e.target.value);
+    }
+    const changeSanceSelectHandler = (e) => {
+        setSanceSelect(e.target.value);
+    }
+
+
+
     const { id } = useParams();
     const productInLS = cartList.find((product) => product.id === (+id));
     const productInContext = cartlistContext.find((product) => product.id === (+id));
@@ -46,27 +58,45 @@ const ProductDetails = () => {
     const changeQuantityHandler = (e) => {
         if ((+e.target.value) > 0) {
             setQuantity((+e.target.value))
+        }else if(e.target.value === "") {
+            setQuantity(e.target.value)
         }
     }
 
     const submitHandler = (e) => {
         e.preventDefault();
-        if (productSeleted.quantity >= 1) {
+
+        const productInLS = cartList.find((product) => product.id === (+id));
+        
+        if (productInLS) {
             let productforSend = productSeleted.quantity + quantity;
             let productForPost = {...productSeleted, quantity: productforSend};
             productForPost.quantity--;
 
             dispatch({type: "upQuantity", product: productForPost});
             setProductSeleted(productForPost);
-
         }else {
             let productforSend = productSeleted.quantity + quantity;
             let productForPost = {...productSeleted, quantity: productforSend};
 
-            
             dispatch({type: "add", product: productForPost});
             setProductSeleted(productForPost);
         }
+        // if (productSeleted.quantity >= 1) {
+        //     let productforSend = productSeleted.quantity + quantity;
+        //     let productForPost = {...productSeleted, quantity: productforSend};
+        //     productForPost.quantity--;
+
+        //     dispatch({type: "upQuantity", product: productForPost});
+        //     setProductSeleted(productForPost);
+
+        // }else {
+        //     let productforSend = productSeleted.quantity + quantity;
+        //     let productForPost = {...productSeleted, quantity: productforSend};
+
+        //     dispatch({type: "add", product: productForPost});
+        //     setProductSeleted(productForPost);
+        // }
     }
 
 
@@ -149,7 +179,7 @@ const ProductDetails = () => {
                         <div className={styles.productVariations}>
                             <div>
                                 <label>Bun</label>
-                                <select className={styles.bunSelect} onChange>
+                                <select className={styles.bunSelect} value={bunSelect} label="status" onChange={changeBunSelectHandler}>
                                     <option value="">Select a Bun</option>
                                     <option value="oat">Oat Bun</option>
                                     <option value="whole-wheat">Whole Wheat</option>
@@ -159,7 +189,7 @@ const ProductDetails = () => {
                             
                             <div>
                                 <label>Sauce</label>
-                                <select className={styles.sanceSelect} onChange>
+                                <select className={styles.sanceSelect} value={sanceSelect} label="status" onChange={changeSanceSelectHandler}>
                                     <option value="">Select a Sauce</option>
                                     <option value="mayonaise">Mayonaise</option>
                                     <option value="thousand-island">Thousand Island</option>
@@ -169,7 +199,7 @@ const ProductDetails = () => {
 
                         </div>
                         
-                        <form className={styles.countProductContainer} >
+                        <form onSubmit={(e) => submitHandler(e)} className={styles.countProductContainer} >
                             <div>
                                 <label>Quantity</label>
                                 <input type="number" onChange={changeQuantityHandler} name="quantity" value={quantity} />

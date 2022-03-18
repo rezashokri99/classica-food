@@ -21,37 +21,24 @@ const AsideMenu = () => {
         }
     }, true);
 
-    // window.addEventListener("click", function () {
-    //     let asideMenu = document.getElementById("asideMenuContainer");
-    //     console.log(asideMenu);
-    //     // addEventListener("blue", function () {
-    //     //     console.log("object");
-    //     // })
-        
 
-    //     asideMenu.onclick = () => setIsClickedOnAsideMenu(true);
-        
-    //     console.log(isClickedOnAsideMenu);
+//   const [humbergerMenu, setHumbergerMenu] = useState("");
+//   useEffect(() => {
+//     // asideMenu = document.getElementById("asideMenuContainer");
+  
+//     setHumbergerMenu(document.getElementById("humbergerMenu"));
+//     // humbergerMenu = document.getElementById("humbergerMenu");
+  
+//     console.log(document);
+//     console.log(document.querySelector("#humbergerMenu"));
+//     console.log(humbergerMenu);
+  
+//     // closeBtnAsideMenu = document.getElementById("closeBtnAsideMenu");
+//   }, [humbergerMenu, showAsideMenu])
 
-    //     if (isClickedOnAsideMenu) {
-    //         console.log("clicked");
-    //         setIsClickedOnAsideMenu(false)
-    //         return;
-    //     }else {
-    //         console.log(showAsideMenu);
-    //         if (showAsideMenu) {
-    //             console.log(showAsideMenu);
-    //             setShowAsideMenu(false);
-    //         }
-    //     }
-    //     return;
-    // });
-    useEffect(() => {
-        document.getElementById("asideMenuContainer").addEventListener("blue", function () {
-            console.log("object");
-        })
-        
-    }, true)
+
+
+
 
 
     return (

@@ -25,11 +25,9 @@ if (!cartlistLS) {
 const reducer = (state, action) => {
   switch (action.type) {
     case "add":{
-      console.log(action.product);
       let productsList = [...state]
       let product = action.product;
-        
-      product.quantity = 1;
+         
       productsList.push(product);  
 
       localStorage.setItem("cartList", JSON.stringify(productsList));
@@ -90,59 +88,7 @@ function App() {
 
   const [showCart, setShowCart] = useState(false);
   const [showAsideMenu, setShowAsideMenu] = useState(false);
-
-  const [isClickedOnAsideMenu, setIsClickedOnAsideMenu] = useState(false);
-  const [isClickedOnHumberMenu, setIsClickedOnHumberMenu] = useState(false);
-  const [isclickedCloseBtnAsideMenu, setIsclickedCloseBtnAsideMenu] = useState(false);
-  // const [cartList, setCartList] = useState(cartlistLS ? cartlistLS : []);
   const [cartList , dispatch] = useReducer(reducer, initialState);
-
-
-
-
-let asideMenu = document.getElementById("asideMenuContainer");
-let humbergerMenu = document.getElementById("humbergerMenu");
-let closeBtnAsideMenu = document.getElementById("closeBtnAsideMenu");
-
-useEffect(() => {
-  asideMenu = document.getElementById("asideMenuContainer");
-  humbergerMenu = document.getElementById("humbergerMenu");
-  closeBtnAsideMenu = document.getElementById("closeBtnAsideMenu");
-}, [])
-
-
-
-window.addEventListener("click", function () {
-  asideMenu = document.getElementById("asideMenuContainer");
-  humbergerMenu = document.getElementById("humbergerMenu");
-  closeBtnAsideMenu = document.getElementById("closeBtnAsideMenu");
-
-  asideMenu.onclick = () => setIsClickedOnAsideMenu(true);
-  humbergerMenu.onclick = () => setIsClickedOnHumberMenu(true);
-  closeBtnAsideMenu.onclick = () => setIsclickedCloseBtnAsideMenu(true);
-  if (isclickedCloseBtnAsideMenu) {
-    setShowAsideMenu(false);
-    setIsclickedCloseBtnAsideMenu(false)
-    
-  }else if (isClickedOnAsideMenu) {
-    setIsClickedOnAsideMenu(false);
-    setShowAsideMenu(true);
-
-    
-    return;
-  }else if (isClickedOnHumberMenu) {
-    setShowAsideMenu(true);
-    setIsClickedOnHumberMenu(false);
-    return;
-  }else {
-    if (showAsideMenu) {
-      setShowAsideMenu(false);
-    }
-    return;
-  }
-  return;
-});
-
 
   return (
     <asideMenuProvider.Provider value={[showAsideMenu, setShowAsideMenu]}>
