@@ -22,7 +22,7 @@
     @include query(575px) {
         width: 100%;
         padding: 0 15px;
-        height: 1300px;
+        height: 1200px;
     }
 
 }
@@ -52,7 +52,7 @@
     @include query(575px) {
         width: 100%;
         padding: 50px 15px;
-        height: 1200px;
+        height: 1300px;
     }
 
 
@@ -73,6 +73,7 @@
         @include query(575px) {
             width: 100% !important;
             padding: 0;
+            // margin-bottom: 30px;
         }
 
     }
@@ -152,6 +153,7 @@
             flex: 0 0 100%;
             max-width: 100%;
             margin: 0;
+            // margin-bottom: 10px;
         }
         
 
@@ -160,6 +162,12 @@
             margin-bottom: 20px;
             color: $whiteColor;
             font-size: 18px;
+
+
+            @include query(575px) {
+                margin-bottom: 10px;
+            }
+
         }
 
         ul {
@@ -174,6 +182,7 @@
 
                 @include query(575px) {
                     margin: 0;
+                    margin: 15px 0 0;
                 }
 
                 a {
@@ -254,7 +263,7 @@
                 }
 
                 @include query(575px) {
-                    width: 25%;
+                    width: 20%;
                 }
 
             }
